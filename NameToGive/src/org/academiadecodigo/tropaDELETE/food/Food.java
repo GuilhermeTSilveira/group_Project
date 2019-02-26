@@ -1,4 +1,17 @@
 package org.academiadecodigo.tropaDELETE.food;
 
-public abstract class Food {
+public class Food {
+
+
+    public Food(){
+
+    }
+
+    public Food(FoodTypes type){
+
+    }
+
+    public  void collide(int value){
+
+    }
 }
