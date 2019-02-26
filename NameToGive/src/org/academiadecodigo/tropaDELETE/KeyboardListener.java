@@ -27,7 +27,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 
             if(keyboardEvent.getKey() == space.getKey()){
 
-                player.move();
+                player.setJump();
 
             }
 

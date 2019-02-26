@@ -6,51 +6,45 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Player implements Movable {
 
-    Rectangle background = new Rectangle(10, 10 , 500, 500);
-    Rectangle avatar = new Rectangle(100, 460, 20, 40);
+    Rectangle avatar;
     private String name;
     private int health;
     private int score;
     private int speed;
     private boolean lose;
     private boolean jump;
+    private int currentHeight = 0;
+    private int maxHeight = -30;
 
-    public Player(String name) {
+    public Player(String name, Rectangle avatar) {
+        this.avatar = avatar;
         this.name = name;
         this.health = 5;
         this.lose = false;
         this.jump = false;
-        background.draw();
-        avatar.setColor(Color.BLACK);
-        avatar.fill();
+
+    }
+
+    public void setJump() {
+
+        this.jump = true;
     }
 
     public void move() {
-        jump = true;
-        try {
-            jump();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public void jump() throws InterruptedException {
-        int currentHeight = 0;
-        int maxHeight = -20;
-
-        while (jump) {
-
-            for (int i = 0; i >= maxHeight; i-=5) {
-
-                System.out.println(i);
-
-                this.translate(0,-5);
-
-                Thread.sleep(200);
+        if (jump) {
+            if (currentHeight == maxHeight) {
+                jump = false;
             }
 
-            jump = false;
+            if (currentHeight > maxHeight) {
 
+                //Thread.sleep(100);
+                avatar.translate(0, -1);
+
+                System.out.println(currentHeight);
+                currentHeight--;
+            }
         }
     }
 
