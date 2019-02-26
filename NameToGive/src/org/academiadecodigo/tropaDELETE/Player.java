@@ -21,30 +21,55 @@ public class Player implements Movable {
         this.name = name;
         this.health = 5;
         this.lose = false;
-        this.jump = false;
 
     }
 
-    public void setJump() {
+    public void setJump(boolean state) {
 
-        this.jump = true;
+        this.jump = state;
     }
 
     public void move() {
 
         if (jump) {
+
             if (currentHeight == maxHeight) {
+
                 jump = false;
+                try {
+                    goDown();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
 
-            if (currentHeight > maxHeight) {
+            goUp();
+        }
+    }
 
-                //Thread.sleep(100);
-                avatar.translate(0, -1);
+    public void goUp() {
 
-                System.out.println(currentHeight);
-                currentHeight--;
-            }
+        if (currentHeight > maxHeight) {
+
+            avatar.translate(0, -1);
+
+            System.out.println(currentHeight);
+
+            currentHeight--;
+        }
+    }
+
+    public void goDown() throws InterruptedException {
+
+        while (currentHeight <= 0) {
+
+            currentHeight++;
+
+            avatar.translate(0, 1);
+
+            System.out.println(currentHeight);
+
+            Thread.sleep(10);
         }
     }
 

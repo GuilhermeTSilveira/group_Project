@@ -8,7 +8,7 @@ public class Game {
     public void start() throws InterruptedException {
 
         Rectangle background = new Rectangle(10, 10, 500, 500);
-        Rectangle avatar = new Rectangle(100, 470, 20, 40);
+        Rectangle avatar = new Rectangle(100, 430, 40, 80);
 
         background.draw();
         avatar.setColor(Color.BLACK);
