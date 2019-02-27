@@ -14,7 +14,7 @@ public class Player implements Movable {
     private boolean lose;
     private boolean jump;
     private int currentHeight = 0;
-    private int maxHeight = -30;
+    private int maxHeight = -80;
 
     public Player(String name, Rectangle avatar) {
         this.avatar = avatar;
@@ -29,47 +29,42 @@ public class Player implements Movable {
         this.jump = state;
     }
 
-    public void move() {
+    public void move() throws InterruptedException {
 
-        if (jump) {
+        if (!jump) {
 
-            if (currentHeight == maxHeight) {
-
-                jump = false;
-                try {
-                    goDown();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            goUp();
+            goDown();
+            return;
         }
+
+        if (currentHeight == maxHeight) {
+
+            jump = false;
+            return;
+        }
+
+        goUp();
     }
 
-    public void goUp() {
+
+    public void goUp() { // desativar o espaço durante este metodo - Pedro
 
         if (currentHeight > maxHeight) {
 
-            avatar.translate(0, -1);
+            avatar.translate(0, -5);
 
-            System.out.println(currentHeight);
-
-            currentHeight--;
+            currentHeight -= 5;
         }
     }
 
-    public void goDown() throws InterruptedException {
+    public void goDown() { // desativar tambem o espaço - Pedro
 
-        while (currentHeight <= 0) {
+        if ((avatar.getHeight() + avatar.getY()) <=  500) {
 
-            currentHeight++;
 
-            avatar.translate(0, 1);
+            avatar.translate(0, 10);
+            currentHeight += 10;
 
-            System.out.println(currentHeight);
-
-            Thread.sleep(10);
         }
     }
 
