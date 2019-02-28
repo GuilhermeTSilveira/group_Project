@@ -26,7 +26,7 @@ public class Game {
     public void start() throws InterruptedException {
 
         createFoodObjects(max);
-        
+
         list.printList(list);
         Rectangle avatar = new Rectangle(250, 430, 40, 80);
 
@@ -50,7 +50,7 @@ public class Game {
 
         while (true) {
 
-            Thread.sleep(50);
+            Thread.sleep(15);
             player.move();
 
         }

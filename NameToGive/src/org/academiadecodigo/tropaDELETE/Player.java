@@ -29,19 +29,22 @@ public class Player implements Movable {
         this.jump = state;
     }
 
-    public void move() throws InterruptedException {
+    public void move() {
 
         if (!jump) {
 
             goDown();
+
             return;
         }
 
         if (currentHeight == maxHeight) {
 
             jump = false;
+
             return;
         }
+
 
         goUp();
     }
@@ -58,11 +61,11 @@ public class Player implements Movable {
 
     public void goDown() { // desativar tambem o espaço - Pedro
 
-        if ((avatar.getHeight() + avatar.getY()) <= 500) {
+        if ((avatar.getHeight() + avatar.getY()) <= 505) {
 
+            avatar.translate(0, 5);
 
-            avatar.translate(0, 10);
-            currentHeight += 10;
+            currentHeight += 5;
 
         }
     }
