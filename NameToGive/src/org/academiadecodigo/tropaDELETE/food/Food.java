@@ -25,7 +25,7 @@ public abstract class Food {
         this.type = type;
     }
 
-    /*public FoodType createFoodObjects(int max) { //Guilherme
+    public FoodType createFoodObjects(int max) { //Guilherme
 
         for (int i = 0; i < max; i++) {
 
@@ -34,7 +34,7 @@ public abstract class Food {
             type = random >= 0 && random <= 0.7 ? new Junk(ellipse).getTypes() : new Healthy(ellipse).getTypes(); // get those randoms.
 
         }
-    }*/
+    }
 
     public FoodType getTypes(){
         return type;
