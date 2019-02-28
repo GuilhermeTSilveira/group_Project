@@ -4,6 +4,7 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.tropaDELETE.food.Food;
+import org.academiadecodigo.tropaDELETE.food.LinkedList;
 
 public class Game {
 
