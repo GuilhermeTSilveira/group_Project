@@ -4,11 +4,11 @@ import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 
 public class Healthy extends Food{
 
-    static FoodType[] type = {FoodType.CARROT, FoodType.TOMATO};
+    private FoodType[] type = {FoodType.CARROT, FoodType.TOMATO};
     Ellipse ellipse;
 
     public Healthy(Ellipse ellipse){
-        super(ellipse);
+        super();
         this.ellipse = ellipse;
     }
 
@@ -17,9 +17,9 @@ public class Healthy extends Food{
 
     }
 
-    public static FoodType getTypes(){ // Create random for types
+    public FoodType getTypes(){ // Create random for types
         int random = (int)(Math.random() * type.length);
-        return random < 1 ? type[0] : type[1];
+        return random < 1 ? this.type[0] : this.type[1];
     }
 
 }

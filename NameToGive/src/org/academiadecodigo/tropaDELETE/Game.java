@@ -4,11 +4,14 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.tropaDELETE.food.Food;
+import org.academiadecodigo.tropaDELETE.food.FoodType;
 import org.academiadecodigo.tropaDELETE.food.LinkedList;
 
 public class Game {
 
-    Food[] foods;
+    private LinkedList<FoodType> list = new LinkedList<>();
+    private int max;
+
     Rectangle background = new Rectangle(10, 10, 800, 500);
     Rectangle barRight = new Rectangle(background.getWidth(), 10, 70, 501);
     Rectangle barLeft = new Rectangle(10, 10, 70, 501);
@@ -17,13 +20,12 @@ public class Game {
     Ellipse ellipse = new Ellipse(background.getWidth(), 440, 70, 70);
 
     public Game(int max) {
-
+        this.max = max;
     }
-
 
     public void start() throws InterruptedException {
 
-        // createFoodObjects(10); -
+        createFoodObjects(max);
         Rectangle avatar = new Rectangle(250, 430, 40, 80);
 
         background.draw();
@@ -50,6 +52,10 @@ public class Game {
             player.move();
 
         }
+    }
+
+    private void createFoodObjects(int max) { // Guilherme
+
     }
 
 }

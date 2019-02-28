@@ -2,22 +2,22 @@ package org.academiadecodigo.tropaDELETE.food;
 // https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html
 
 
-public class LinkedList {
+public class LinkedList<E> {
 
     Node head;
     int length = 0;
 
-    static class Node {
+    public class Node {
 
-        Object foodName;
+        E foodName;
         Node next; // food type
 
-        public Node(Object foodType) {
+        public Node(E foodType) {
             this.foodName = foodType;
             next = null;
         }
 
-        public Object getFoodName() {
+        public E getFoodName() {
             return foodName;
         }
 
@@ -31,22 +31,22 @@ public class LinkedList {
         this.head = new Node(null);
     }
 
-    public LinkedList add(LinkedList list, Object foodName) {
+    public LinkedList add(E foodName) {
 
         Node newNode = new Node(foodName);
         newNode.next = null;
 
-        if (list.head == null) {
-            list.head = newNode;
+        if (head == null) {
+            head = newNode;
         } else {
-            Node lastNode = list.head;
+            Node lastNode = head;
             while (lastNode.next != null) {
                 lastNode = lastNode.getNext();
             }
             lastNode.next = newNode;
         }
         length++;
-        return list;
+        return this;
     }
 
 
@@ -71,7 +71,7 @@ public class LinkedList {
     }*/
 
 
-        public static void printList(LinkedList list) {
+        public void printList(LinkedList list) {
         Node currentNode = list.head.getNext();
 
         System.out.print("Foodlist: ");

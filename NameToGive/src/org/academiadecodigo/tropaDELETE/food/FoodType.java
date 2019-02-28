@@ -2,7 +2,7 @@ package org.academiadecodigo.tropaDELETE.food;
 
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 
-public enum FoodType {
+public enum FoodType { //Ana vai tratar de dar uma ellipse (inicialmente) a cada type
 
     CARROT(1),
     HAMBURGER(2),
