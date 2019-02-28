@@ -5,9 +5,9 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class Food {
 
-    Picture picture;
-    Ellipse ellipse;
-    private FoodType type;
+    private Picture picture;
+    private static Ellipse ellipse;
+    private static FoodType type;
 
     public Food(){
 
@@ -25,16 +25,14 @@ public abstract class Food {
         this.type = type;
     }
 
-    /*public FoodType createFoodObjects(int max) { //Guilherme
+    public static FoodType createFoodObjects() { //Guilherme
 
-        for (int i = 0; i < max; i++) {
+        double random = Math.random();
 
-            double random = Math.random();
+        type = random >= 0 && random <= 0.7 ? new Junk(ellipse).getTypes() : new Healthy(ellipse).getTypes(); // get those randoms.
 
-            type = random >= 0 && random <= 0.7 ? new Junk(ellipse).getTypes() : new Healthy(ellipse).getTypes(); // get those randoms.
-
-        }
-    }*/
+        return type;
+    }
 
     public FoodType getTypes(){
         return type;
