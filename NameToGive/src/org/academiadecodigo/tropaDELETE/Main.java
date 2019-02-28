@@ -3,6 +3,7 @@ package org.academiadecodigo.tropaDELETE;
     // Corrigir o movimento do boneco (smooth e mais rapido)
 
 import org.academiadecodigo.tropaDELETE.food.FoodType;
+import org.academiadecodigo.tropaDELETE.food.Healthy;
 import org.academiadecodigo.tropaDELETE.food.Junk;
 import org.academiadecodigo.tropaDELETE.food.LinkedList;
 
@@ -12,12 +13,12 @@ public class Main {
         Game game = new Game(5);
 
         LinkedList list = new LinkedList();
-        list.add(list, FoodType.values()[(int)(Math.random() * FoodType.values().length)]);
-        list.add(list, FoodType.values()[(int)(Math.random() * FoodType.values().length)]);
-        list.add(list, FoodType.values()[(int)(Math.random() * FoodType.values().length)]);
-        list.add(list, FoodType.values()[(int)(Math.random() * FoodType.values().length)]);
-        list.add(list, FoodType.values()[(int)(Math.random() * FoodType.values().length)]);
-        list.add(list, FoodType.values()[(int)(Math.random() * FoodType.values().length)]);
+        list.add(list, Healthy.getTypes());
+        list.add(list, Junk.getTypes());
+        list.add(list, Healthy.getTypes());
+        list.add(list, Junk.getTypes());
+        list.add(list, Junk.getTypes());
+        list.add(list, Junk.getTypes());
 
         LinkedList.printList(list);
 
