@@ -60,7 +60,7 @@ public class Player implements Movable {
 
     public void goDown() {
 
-        if ((avatar.getHeight() + avatar.getY()) <= 505) {
+        if ((avatar.getHeight() + avatar.getY()) <= Scenario.WINDOW_HEIGHT+10) {
 
             avatar.translate(0, 5);
 

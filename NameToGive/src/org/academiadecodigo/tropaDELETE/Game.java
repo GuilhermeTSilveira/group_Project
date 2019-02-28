@@ -28,7 +28,7 @@ public class Game {
         createFoodObjects(max);
 
         list.printList(list);
-        Rectangle avatar = new Rectangle(250, 430, 40, 80);
+        Rectangle avatar = new Rectangle(250, 450, 40, 80);
 
         Rectangle screen = scenario.getBackgroundWindow();
         screen.draw();
@@ -44,9 +44,9 @@ public class Game {
         avatar.setColor(Color.BLACK);
         avatar.fill();
 
-        ellipse = scenario.getEllipse();
-        ellipse.setColor(Color.YELLOW);
-        ellipse.fill();
+        //ellipse = scenario.getEllipse();
+        //ellipse.setColor(Color.YELLOW);
+        //ellipse.fill();
 
 
         Player player = new Player("Player 1", avatar);

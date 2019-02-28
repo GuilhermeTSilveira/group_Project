@@ -2,19 +2,20 @@ package org.academiadecodigo.tropaDELETE.food;
 
 import org.academiadecodigo.simplegraphics.graphics.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.tropaDELETE.Scenario;
 
-public enum FoodType { //Ana vai tratar de dar uma ellipse (inicialmente) a cada type
+public enum FoodType { // Guilherme a tratar
 
-    CARROT(1, new Ellipse(800, 430, 80, 80), null),
-    HAMBURGER(1, new Ellipse(800, 430, 80, 80), null),
-    TOMATO(1, new Ellipse(800, 430, 80, 80), null),
-    PIZZA(1, new Ellipse(800, 430, 80, 80), null);
+    CARROT(1, new Ellipse(500, 400, 80, 80)),
+    HAMBURGER(1, new Ellipse(500, 400, 80, 80)),
+    TOMATO(1, new Ellipse(500, 400, 80, 80)),
+    PIZZA(1, new Ellipse(500, 400, 80, 80));
 
     Ellipse ellipse;
     int speed;
 
 
-    FoodType(int speed, Ellipse ellipse, Rectangle rectangle) {
+    FoodType(int speed, Ellipse ellipse) {
         this.speed = speed;
         this.ellipse = ellipse;
     }
@@ -26,10 +27,6 @@ public enum FoodType { //Ana vai tratar de dar uma ellipse (inicialmente) a cada
     public int getSpeed() {
         return speed;
     }
-
-    //public void move(Ellipse ellipse) throws InterruptedException {
-    //    ellipse.translate(-3, 0);
-    //}
 
     public Ellipse getShape() {
         switch (this) {
