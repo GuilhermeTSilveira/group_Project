@@ -3,6 +3,7 @@ package org.academiadecodigo.tropaDELETE;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.tropaDELETE.food.Food;
 import org.academiadecodigo.tropaDELETE.food.FoodType;
 import org.academiadecodigo.tropaDELETE.food.LinkedList;
@@ -18,9 +19,11 @@ public class Game {
 
 
     Ellipse ellipse = new Ellipse(background.getWidth(), 440, 70, 70);
+    Scenario scenario;
 
     public Game(int max) {
         this.max = max;
+        this.scenario = new Scenario();
     }
 
     public void start() throws InterruptedException {
@@ -28,10 +31,28 @@ public class Game {
         createFoodObjects(max);
         Rectangle avatar = new Rectangle(250, 430, 40, 80);
 
+        Rectangle screen = scenario.getBackgroundWindow();
+        screen.draw();
+
+        Picture background = scenario.getBackground();
+        background.draw();
+
+        Rectangle topBorder = scenario.getTopBorder();
+        topBorder.setColor(Color.BLACK);
+        //topBorder.fill();
+
+        Rectangle leftBorder = scenario.getLeftBorder();
+        leftBorder.setColor(Color.BLACK);
+        //leftBorder.fill();
+
+        Rectangle rightBorder = scenario.getRightBorder();
+        rightBorder.setColor(Color.BLACK);
+        rightBorder.fill();
+
         background.draw();
         avatar.setColor(Color.BLACK);
         avatar.fill();
-
+        /*
         ellipse.setColor(Color.PINK);
         ellipse.fill();
 
@@ -39,7 +60,7 @@ public class Game {
         barRight.fill();
 
         barLeft.setColor(Color.WHITE);
-        barLeft.fill();
+        barLeft.fill();*/
 
 
         Player player = new Player("Player 1", avatar);
