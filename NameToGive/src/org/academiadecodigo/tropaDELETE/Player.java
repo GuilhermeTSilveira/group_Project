@@ -46,7 +46,6 @@ public class Player implements Movable {
         goUp();
     }
 
-
     public void goUp() { // desativar o espaço durante este metodo - Pedro
 
         if (currentHeight > maxHeight) {
@@ -59,7 +58,7 @@ public class Player implements Movable {
 
     public void goDown() { // desativar tambem o espaço - Pedro
 
-        if ((avatar.getHeight() + avatar.getY()) <=  500) {
+        if ((avatar.getHeight() + avatar.getY()) <= 500) {
 
 
             avatar.translate(0, 10);
