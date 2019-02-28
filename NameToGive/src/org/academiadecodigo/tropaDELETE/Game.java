@@ -3,7 +3,7 @@ package org.academiadecodigo.tropaDELETE;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.graphics.Shape;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.tropaDELETE.food.Food;
 import org.academiadecodigo.tropaDELETE.food.FoodType;
 import org.academiadecodigo.tropaDELETE.food.LinkedList;
@@ -16,13 +16,11 @@ public class Game {
 
     private int max;
 
-    Rectangle background = new Rectangle(10, 10, 800, 500);
-    Rectangle barRight = new Rectangle(background.getWidth(), 10, 70, 501);
-    Rectangle barLeft = new Rectangle(10, 10, 70, 501);
-
+    Scenario scenario;
 
     public Game(int max) {
         this.max = max;
+        this.scenario = new Scenario();
     }
 
     public void start() throws InterruptedException {
@@ -32,15 +30,23 @@ public class Game {
         list.printList(list);
         Rectangle avatar = new Rectangle(250, 430, 40, 80);
 
+        Rectangle screen = scenario.getBackgroundWindow();
+        screen.draw();
+
+        Picture background = scenario.getBackground();
+        background.draw();
+
+        Rectangle rightBorder = scenario.getRightBorder();
+        rightBorder.setColor(Color.BLACK);
+        rightBorder.fill();
+
         background.draw();
         avatar.setColor(Color.BLACK);
         avatar.fill();
 
-        barRight.setColor(Color.WHITE);
-        barRight.fill();
-
-        barLeft.setColor(Color.WHITE);
-        barLeft.fill();
+        ellipse = scenario.getEllipse();
+        ellipse.setColor(Color.YELLOW);
+        ellipse.fill();
 
 
         Player player = new Player("Player 1", avatar);
