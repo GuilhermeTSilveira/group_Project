@@ -11,14 +11,11 @@ import org.academiadecodigo.tropaDELETE.food.LinkedList;
 public class Game {
 
     private LinkedList<FoodType> list = new LinkedList<>();
+    FoodType type;
+    Ellipse ellipse;
+
     private int max;
 
-    Rectangle background = new Rectangle(10, 10, 800, 500);
-    Rectangle barRight = new Rectangle(background.getWidth(), 10, 70, 501);
-    Rectangle barLeft = new Rectangle(10, 10, 70, 501);
-
-
-    Ellipse ellipse = new Ellipse(background.getWidth(), 440, 70, 70);
     Scenario scenario;
 
     public Game(int max) {
@@ -29,6 +26,8 @@ public class Game {
     public void start() throws InterruptedException {
 
         createFoodObjects(max);
+
+        list.printList(list);
         Rectangle avatar = new Rectangle(250, 430, 40, 80);
 
         Rectangle screen = scenario.getBackgroundWindow();
@@ -37,14 +36,6 @@ public class Game {
         Picture background = scenario.getBackground();
         background.draw();
 
-        Rectangle topBorder = scenario.getTopBorder();
-        topBorder.setColor(Color.BLACK);
-        //topBorder.fill();
-
-        Rectangle leftBorder = scenario.getLeftBorder();
-        leftBorder.setColor(Color.BLACK);
-        //leftBorder.fill();
-
         Rectangle rightBorder = scenario.getRightBorder();
         rightBorder.setColor(Color.BLACK);
         rightBorder.fill();
@@ -52,15 +43,10 @@ public class Game {
         background.draw();
         avatar.setColor(Color.BLACK);
         avatar.fill();
-        /*
-        ellipse.setColor(Color.PINK);
+
+        ellipse = scenario.getEllipse();
+        ellipse.setColor(Color.YELLOW);
         ellipse.fill();
-
-        barRight.setColor(Color.WHITE);
-        barRight.fill();
-
-        barLeft.setColor(Color.WHITE);
-        barLeft.fill();*/
 
 
         Player player = new Player("Player 1", avatar);
@@ -69,14 +55,27 @@ public class Game {
 
         while (true) {
 
-            Thread.sleep(50);
+            Thread.sleep(15);
+
             player.move();
+
+            type.move(ellipse);
+
 
         }
     }
 
-    private void createFoodObjects(int max) { // Guilherme
+    private void createFoodObjects(int max) {
 
+        for (int i = 0; i < max; i++) {
+
+            type = Food.createFoodObjects();
+
+            list.add(type);
+
+            ellipse = type.getShape();
+
+        }
     }
 
 }

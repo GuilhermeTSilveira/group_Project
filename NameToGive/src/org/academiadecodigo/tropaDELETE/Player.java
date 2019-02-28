@@ -1,6 +1,5 @@
 package org.academiadecodigo.tropaDELETE;
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
@@ -29,24 +28,27 @@ public class Player implements Movable {
         this.jump = state;
     }
 
-    public void move() throws InterruptedException {
+    public void move() {
 
         if (!jump) {
 
             goDown();
+
             return;
         }
 
         if (currentHeight == maxHeight) {
 
             jump = false;
+
             return;
         }
+
 
         goUp();
     }
 
-    public void goUp() { // desativar o espaço durante este metodo - Pedro
+    public void goUp() {
 
         if (currentHeight > maxHeight) {
 
@@ -56,13 +58,13 @@ public class Player implements Movable {
         }
     }
 
-    public void goDown() { // desativar tambem o espaço - Pedro
+    public void goDown() {
 
-        if ((avatar.getHeight() + avatar.getY()) <= 500) {
+        if ((avatar.getHeight() + avatar.getY()) <= 505) {
 
+            avatar.translate(0, 5);
 
-            avatar.translate(0, 10);
-            currentHeight += 10;
+            currentHeight += 5;
 
         }
     }

@@ -71,7 +71,7 @@ public class LinkedList<E> {
     }*/
 
 
-        public void printList(LinkedList list) {
+    public void printList(LinkedList list) {
         Node currentNode = list.head.getNext();
 
         System.out.print("Foodlist: ");
@@ -82,7 +82,6 @@ public class LinkedList<E> {
             currentNode = currentNode.getNext();
         }
     }
-
 
 }
 

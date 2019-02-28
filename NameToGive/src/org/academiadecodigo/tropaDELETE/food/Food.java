@@ -5,38 +5,22 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class Food {
 
-    Picture picture;
-    Ellipse ellipse;
-    private FoodType type;
-
     public Food(){
 
     }
-
-    /*public Food(FoodType type){
-
-    }*/
 
     public void collide(int value){
 
     }
 
-    public void setType(FoodType type){
-        this.type = type;
-    }
+    public static FoodType createFoodObjects() {
 
-    /*public FoodType createFoodObjects(int max) { //Guilherme
+        FoodType type;
 
-        for (int i = 0; i < max; i++) {
+        double random = Math.random();
 
-            double random = Math.random();
+        type = random >= 0 && random <= 0.7 ? new Junk().getTypes() : new Healthy().getTypes(); // get those randoms.
 
-            type = random >= 0 && random <= 0.7 ? new Junk(ellipse).getTypes() : new Healthy(ellipse).getTypes(); // get those randoms.
-
-        }
-    }*/
-
-    public FoodType getTypes(){
         return type;
     }
 }
