@@ -17,8 +17,6 @@ public class Game {
     Rectangle barLeft = new Rectangle(10, 10, 70, 501);
 
 
-    Ellipse ellipse = new Ellipse(background.getWidth(), 440, 70, 70);
-
     public Game(int max) {
         this.max = max;
     }
@@ -33,9 +31,6 @@ public class Game {
         background.draw();
         avatar.setColor(Color.BLACK);
         avatar.fill();
-
-        ellipse.setColor(Color.PINK);
-        ellipse.fill();
 
         barRight.setColor(Color.WHITE);
         barRight.fill();
@@ -64,6 +59,7 @@ public class Game {
 
             list.add(type);
 
+            type.getShape();
         }
     }
 

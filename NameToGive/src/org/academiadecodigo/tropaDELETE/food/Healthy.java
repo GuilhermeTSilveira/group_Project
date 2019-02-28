@@ -1,15 +1,11 @@
 package org.academiadecodigo.tropaDELETE.food;
 
-import org.academiadecodigo.simplegraphics.graphics.Ellipse;
-
 public class Healthy extends Food{
 
     private FoodType[] type = {FoodType.CARROT, FoodType.TOMATO};
-    Ellipse ellipse;
 
-    public Healthy(Ellipse ellipse){
+    public Healthy(){
         super();
-        this.ellipse = ellipse;
     }
 
     @Override
