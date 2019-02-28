@@ -25,7 +25,7 @@ public abstract class Food {
         this.type = type;
     }
 
-    public static FoodType createFoodObjects() { //Guilherme
+    public static FoodType createFoodObjects() {
 
         double random = Math.random();
 
