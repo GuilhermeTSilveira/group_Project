@@ -26,6 +26,8 @@ public class Game {
     public void start() throws InterruptedException {
 
         createFoodObjects(max);
+        
+        list.printList(list);
         Rectangle avatar = new Rectangle(250, 430, 40, 80);
 
         background.draw();
@@ -56,6 +58,13 @@ public class Game {
 
     private void createFoodObjects(int max) { // Guilherme
 
+        for (int i = 0; i < max; i++) {
+
+            FoodType type = Food.createFoodObjects();
+
+            list.add(type);
+
+        }
     }
 
 }
