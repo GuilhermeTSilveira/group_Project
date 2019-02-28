@@ -7,7 +7,7 @@ public enum FoodType { //Ana vai tratar de dar uma ellipse (inicialmente) a cada
 
     CARROT(1, new Ellipse(800, 430, 80, 80), null),
     HAMBURGER(1, new Ellipse(800, 430, 80, 80), null),
-    TOMATO(3, new Ellipse(800, 430, 80, 80), null),
+    TOMATO(1, new Ellipse(800, 430, 80, 80), null),
     PIZZA(1, new Ellipse(800, 430, 80, 80), null);
 
     Ellipse ellipse;
@@ -58,8 +58,12 @@ public enum FoodType { //Ana vai tratar de dar uma ellipse (inicialmente) a cada
 
         if (ellipse.getX() > -10) {
 
-            ellipse.translate(-5, 0);
+            ellipse.translate(-2, 0);
 
+        }
+
+        if(ellipse.getX() == -10){
+            ellipse.delete();
         }
     }
 
