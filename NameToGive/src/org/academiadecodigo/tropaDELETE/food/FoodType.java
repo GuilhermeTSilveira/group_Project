@@ -4,7 +4,7 @@ import org.academiadecodigo.simplegraphics.graphics.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.tropaDELETE.Scenario;
 
-public enum FoodType { // Guilherme a tratar
+public enum FoodType {
 
     CARROT(1, new Ellipse(500, 400, 80, 80)),
     HAMBURGER(1, new Ellipse(500, 400, 80, 80)),
@@ -55,7 +55,7 @@ public enum FoodType { // Guilherme a tratar
 
         if (ellipse.getX() > -10) {
 
-            ellipse.translate(-2, 0);
+            ellipse.translate(-5, 0);
 
         }
 

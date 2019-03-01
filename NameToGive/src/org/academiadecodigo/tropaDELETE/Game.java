@@ -8,11 +8,13 @@ import org.academiadecodigo.tropaDELETE.food.Food;
 import org.academiadecodigo.tropaDELETE.food.FoodType;
 import org.academiadecodigo.tropaDELETE.food.LinkedList;
 
+import java.util.Collections;
+
 public class Game {
 
     private LinkedList<FoodType> list = new LinkedList<>();
-    FoodType type;
-    Ellipse ellipse;
+    private FoodType type;
+    private Ellipse ellipse;
 
     private int max;
 
@@ -44,9 +46,9 @@ public class Game {
         avatar.setColor(Color.BLACK);
         avatar.fill();
 
-        //ellipse = scenario.getEllipse();
-        //ellipse.setColor(Color.YELLOW);
-        //ellipse.fill();
+        ellipse = scenario.getEllipse();
+        ellipse.setColor(Color.YELLOW);
+        ellipse.fill();
 
 
         Player player = new Player("Player 1", avatar);
@@ -54,6 +56,7 @@ public class Game {
 
 
         while (true) {
+
 
             Thread.sleep(15);
 

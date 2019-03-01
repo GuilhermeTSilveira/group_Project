@@ -34,7 +34,7 @@ public class Scenario {
         leftBorder = new Rectangle(PADDING,PADDING,BORDER_WIDTH,WINDOW_HEIGHT);
         rightBorder = new Rectangle(WINDOW_WIDTH ,PADDING,BORDER_WIDTH + PADDING,WINDOW_HEIGHT);
         background = new Picture(backgroundWindow.getX(),backgroundWindow.getY(),"org/academiadecodigo/tropaDELETE/resources/fundo.png");
-        ellipse = new Ellipse(backgroundWindow.getWidth(),backgroundWindow.getHeight()-80,80,80);
+        ellipse = new Ellipse(backgroundWindow.getWidth(),backgroundWindow.getHeight()-65,80,80);
     }
 
     public Rectangle getBackgroundWindow() {

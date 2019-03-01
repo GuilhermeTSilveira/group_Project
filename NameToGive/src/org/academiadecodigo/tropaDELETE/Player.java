@@ -13,7 +13,7 @@ public class Player implements Movable {
     private boolean lose;
     private boolean jump;
     private int currentHeight = 0;
-    private int maxHeight = -80;
+    private int maxHeight = -150;
 
     public Player(String name, Rectangle avatar) {
         this.avatar = avatar;
