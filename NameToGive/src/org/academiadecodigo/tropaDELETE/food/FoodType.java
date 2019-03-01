@@ -4,24 +4,24 @@ import org.academiadecodigo.simplegraphics.graphics.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.tropaDELETE.Scenario;
 
+import java.util.Collections;
+
 public enum FoodType {
 
-    CARROT(1, new Ellipse(500, 400, 80, 80)),
-    HAMBURGER(1, new Ellipse(500, 400, 80, 80)),
-    TOMATO(1, new Ellipse(500, 400, 80, 80)),
-    PIZZA(1, new Ellipse(500, 400, 80, 80));
+    CARROT(1, new Ellipse( 990, 450 ,80,80)),
+    HAMBURGER(1, new Ellipse(990, 450, 80, 80)),
+    TOMATO(1, new Ellipse(990, 450, 80, 80)),
+    PIZZA(1, new Ellipse(990, 450, 80, 80));
 
     Ellipse ellipse;
+    private boolean delete;
     int speed;
 
 
     FoodType(int speed, Ellipse ellipse) {
         this.speed = speed;
         this.ellipse = ellipse;
-    }
-
-    FoodType(){
-
+        this.delete = false;
     }
 
     public int getSpeed() {
@@ -32,19 +32,15 @@ public enum FoodType {
         switch (this) {
             case CARROT:
                 this.ellipse.setColor(Color.ORANGE);
-                this.ellipse.fill();
                 break;
             case HAMBURGER:
                 this.ellipse.setColor(Color.YELLOW);
-                this.ellipse.fill();
                 break;
             case TOMATO:
                 this.ellipse.setColor(Color.RED);
-                this.ellipse.fill();
                 break;
             case PIZZA:
                 this.ellipse.setColor(Color.GREEN);
-                this.ellipse.fill();
                 break;
         }
 
@@ -53,15 +49,32 @@ public enum FoodType {
 
     public void move(Ellipse ellipse){
 
-        if (ellipse.getX() > -10) {
+        if (ellipse.getX() > -50) {
 
             ellipse.translate(-5, 0);
 
         }
 
-        if(ellipse.getX() == -10){
+        if(ellipse.getX() == -50){
+
             ellipse.delete();
+
+            ellipse.translate(1050,0);
+
+            delete = true;
         }
+    }
+
+    public void resetPosition(Ellipse ellipse){
+
+
+
+    }
+
+    public boolean isDeleted(){
+
+        return this.delete;
+
     }
 
 }
