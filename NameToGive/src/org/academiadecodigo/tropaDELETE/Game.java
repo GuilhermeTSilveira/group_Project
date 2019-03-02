@@ -67,9 +67,9 @@ public class Game {
 
             Thread.sleep(15);
 
-            Collections.shuffle(list);
-
             ellipse[i].fill();
+
+            Collections.shuffle(list);
 
             player.move();
 

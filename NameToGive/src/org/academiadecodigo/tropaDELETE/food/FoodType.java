@@ -8,10 +8,10 @@ import java.util.Collections;
 
 public enum FoodType {
 
-    CARROT(10, new Ellipse( 1300, 440 ,80,80)),
+    CARROT(15, new Ellipse( 1300, 300 ,80,80)),
     HAMBURGER(15, new Ellipse(1300, 440, 80, 80)),
-    TOMATO(8, new Ellipse(1300, 440, 80, 80)),
-    PIZZA(14, new Ellipse(1390, 440, 80, 80));
+    TOMATO(15, new Ellipse(1300, 300, 80, 80)),
+    PIZZA(15, new Ellipse(1390, 440, 80, 80));
 
     private Ellipse ellipse;
     private int speed;
