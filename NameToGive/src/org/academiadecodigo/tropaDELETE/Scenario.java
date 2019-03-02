@@ -33,7 +33,7 @@ public class Scenario {
         topBorder = new Rectangle(PADDING,PADDING,WINDOW_WIDTH,BORDER_WIDTH /2);
         leftBorder = new Rectangle(PADDING,PADDING,BORDER_WIDTH,WINDOW_HEIGHT);
         rightBorder = new Rectangle(WINDOW_WIDTH ,PADDING,BORDER_WIDTH + PADDING,WINDOW_HEIGHT);
-        background = new Picture(backgroundWindow.getX(),backgroundWindow.getY(),"org/academiadecodigo/tropaDELETE/resources/fundo.png");
+        background = new Picture(backgroundWindow.getX(),backgroundWindow.getY(),"org/academiadecodigo/tropaDELETE/resources/simetrico_fundo.png");
         ellipse = new Ellipse(backgroundWindow.getWidth(),backgroundWindow.getHeight()-65,80,80);
     }
 
