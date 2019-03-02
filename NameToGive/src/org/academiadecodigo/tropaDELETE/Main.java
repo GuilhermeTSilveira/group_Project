@@ -11,7 +11,7 @@ public class Main {
 
         try {
 
-            game.start();
+            game.init();
 
         } catch (InterruptedException e) {
 

@@ -20,7 +20,12 @@ public class Game {
 
     private Picture[] picture;
 
+    private Picture initialPicture;
+
+    private Player player;
+
     private int max;
+
 
     Scenario scenario;
 
@@ -35,19 +40,13 @@ public class Game {
         type = new FoodType[max];
     }
 
-    public void start() throws InterruptedException {
+    public void init() throws InterruptedException {
+        this.initialPicture = new Picture(0, 0, "org/academiadecodigo/tropaDELETE/resources/InitialScreen_resized.jpg");
+        initialPicture.draw();
+        Thread.sleep(4000);
+
 
         createFoodObjects(max);
-
-        //list.printList(list);
-
-        Picture avatar1 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame1.png");
-        Picture avatar2 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame2.png");
-        Picture avatar3 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame3.png");
-        Picture avatar4 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame4.png");
-        Picture avatar5 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame5.png");
-        Picture avatar6 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame6.png");
-
         Rectangle screen = scenario.getBackgroundWindow();
         screen.draw();
 
@@ -56,6 +55,34 @@ public class Game {
 
 
         background.draw();
+
+
+
+        Picture avatar1 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame1.png");
+        Picture avatar2 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame2.png");
+        Picture avatar3 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame3.png");
+        Picture avatar4 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame4.png");
+        Picture avatar5 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame5.png");
+        Picture avatar6 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame6.png");
+        this.player = new Player("Player 1", avatar1, avatar2, avatar3, avatar4, avatar5, avatar6);
+
+
+        KeyboardListener keyboard = new KeyboardListener(player);
+
+        start();
+
+
+    }
+
+    public void start() throws InterruptedException {
+
+
+
+        //list.printList(list);
+
+
+
+
         // avatar1.draw();
 
         /*ellipse = scenario.getEllipse();
@@ -63,8 +90,7 @@ public class Game {
         */
 
 
-        Player player = new Player("Player 1", avatar1, avatar2, avatar3, avatar4, avatar5, avatar6);
-        KeyboardListener keyboard = new KeyboardListener(player);
+
 
         int i = 0;
 
@@ -93,7 +119,16 @@ public class Game {
                 i = 0;
 
             }
+            if (player.getHealth() == 0){
+               gameOver();
+            }
         }
+    }
+
+    private void gameOver(){
+        player.avatar.delete(); // make for to delete all sprites
+        Picture gameOverPicture = new Picture(0,0,"org/academiadecodigo/tropaDELETE/resources/GameOver_resized.jpg");
+        gameOverPicture.draw();
     }
 
     private void createFoodObjects(int max) {

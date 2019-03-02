@@ -32,7 +32,7 @@ public class Player implements Movable {
         this.avatar6 = avatar6;
         this.avatar = spriteSheets();
         this.name = name;
-        this.health = 5;
+        this.health = 10;
         this.lose = false;
 
     }
@@ -41,6 +41,10 @@ public class Player implements Movable {
     public void setJump(boolean state) {
 
         this.jump = state;
+    }
+
+    public int getHealth(){
+        return this.health;
     }
 
     public Picture spriteSheets() {
