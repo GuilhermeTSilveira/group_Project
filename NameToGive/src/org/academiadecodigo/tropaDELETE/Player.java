@@ -48,11 +48,11 @@ public class Player implements Movable {
         avatar = avatar1;
         maxFrames++;
 
-        if (maxFrames == 72) {
+        if (maxFrames == 42) {
             maxFrames = 0;
         }
 
-        if (maxFrames > 60 && maxFrames <= 72) {
+        if (maxFrames > 36 && maxFrames <= 42) {
 
             avatar6.draw();
             avatar = avatar6;
@@ -65,7 +65,7 @@ public class Player implements Movable {
 
         }
 
-        if (maxFrames > 48 && maxFrames <= 60) {
+        if (maxFrames > 30 && maxFrames <= 36) {
 
             avatar5.draw();
             avatar = avatar5;
@@ -78,7 +78,7 @@ public class Player implements Movable {
 
         }
 
-        if (maxFrames > 36 && maxFrames <= 48) {
+        if (maxFrames > 24 && maxFrames <= 30) {
 
             avatar4.draw();
             avatar = avatar4;
@@ -91,7 +91,7 @@ public class Player implements Movable {
 
         }
 
-        if (maxFrames > 24 && maxFrames <= 36) {
+        if (maxFrames > 12 && maxFrames <= 24) {
 
             avatar3.draw();
             avatar = avatar3;
@@ -104,7 +104,7 @@ public class Player implements Movable {
 
         }
 
-        if (maxFrames > 12 && maxFrames <= 24) {
+        if (maxFrames > 6 && maxFrames <= 12) {
 
             avatar2.draw();
             avatar = avatar2;
