@@ -74,7 +74,7 @@ public class Game {
             //type.move(ellipse);
             move(picture[i], type[i]);
 
-            if (picture[i].getX() < -80) {
+            if (picture[i].getX() < -200) {
 
                 i++;
 

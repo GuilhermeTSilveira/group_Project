@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Player implements Movable {
+public class Player implements Movable { // Guilherme
 
     List<Picture> listPicture;
 
