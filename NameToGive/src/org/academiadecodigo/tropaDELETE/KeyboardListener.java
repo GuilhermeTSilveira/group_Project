@@ -25,11 +25,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
         @Override
         public void keyPressed(KeyboardEvent keyboardEvent) {
 
-            if((player.avatar.getHeight() + player.avatar.getY()) > 500){
-
-                player.setJump(true);
-
-            }
+            player.setJump(true);
 
         }
 

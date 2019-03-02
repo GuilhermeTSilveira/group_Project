@@ -1,7 +1,5 @@
 package org.academiadecodigo.tropaDELETE;
 
-
-import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -67,11 +65,11 @@ public class Game {
 
             Collections.shuffle(list);
 
+            player.draw();
+
             player.move();
 
-            player.spriteSheets();
-
-            type.move(ellipse);
+            //type.move(ellipse);
             move(ellipse[i], type[i]);
 
             if(ellipse[i].getX() < -80) {
