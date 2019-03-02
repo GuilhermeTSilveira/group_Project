@@ -39,7 +39,14 @@ public class Game {
 
         createFoodObjects(max);
 
-        Rectangle avatar = new Rectangle(250, 430, 40, 80);
+        list.printList(list);
+
+        Picture avatar1 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame1.png");
+        Picture avatar2 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame2.png");
+        Picture avatar3 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame3.png");
+        Picture avatar4 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame4.png");
+        Picture avatar5 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame5.png");
+        Picture avatar6 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame6.png");
 
         Rectangle screen = scenario.getBackgroundWindow();
         screen.draw();
@@ -49,16 +56,14 @@ public class Game {
 
 
         background.draw();
-        avatar.setColor(Color.BLACK);
-        avatar.fill();
+        // avatar1.draw();
 
         /*ellipse = scenario.getEllipse();
         ellipse.setColor(Color.YELLOW);
         */
 
 
-        Player player = new Player("Player 1", avatar);
-
+        Player player = new Player("Player 1", avatar1, avatar2, avatar3, avatar4, avatar5, avatar6);
         KeyboardListener keyboard = new KeyboardListener(player);
 
         int i = 0;
@@ -73,6 +78,9 @@ public class Game {
 
             player.move();
 
+            player.spriteSheets();
+
+            type.move(ellipse);
             move(ellipse[i], type[i]);
 
             if(ellipse[i].getX() < -80) {
