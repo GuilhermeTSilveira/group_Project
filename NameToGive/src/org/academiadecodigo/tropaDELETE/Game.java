@@ -19,10 +19,12 @@ public class Game {
     private int max;
 
     Scenario scenario;
+    Player avatarImages;
 
     public Game(int max) {
         this.max = max;
         this.scenario = new Scenario();
+
     }
 
     public void start() throws InterruptedException {
@@ -30,7 +32,9 @@ public class Game {
         createFoodObjects(max);
 
         list.printList(list);
-        Rectangle avatar = new Rectangle(250, 450, 40, 80);
+
+        Picture avatar1 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame2.png");
+        Picture avatar2 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame1.png");
 
         Rectangle screen = scenario.getBackgroundWindow();
         screen.draw();
@@ -43,15 +47,14 @@ public class Game {
         rightBorder.fill();
 
         background.draw();
-        avatar.setColor(Color.BLACK);
-        avatar.fill();
+        // avatar1.draw();
 
         ellipse = scenario.getEllipse();
         ellipse.setColor(Color.YELLOW);
         ellipse.fill();
 
 
-        Player player = new Player("Player 1", avatar);
+        Player player = new Player("Player 1", avatar1, avatar2);
         KeyboardListener keyboard = new KeyboardListener(player);
 
 
@@ -61,6 +64,8 @@ public class Game {
             Thread.sleep(15);
 
             player.move();
+
+            player.spriteSheets();
 
             type.move(ellipse);
 
