@@ -26,8 +26,7 @@ public class Game {
 
     private int max;
 
-
-    Scenario scenario;
+    private Scenario scenario;
 
     public Game(int max) {
 
@@ -45,7 +44,6 @@ public class Game {
         initialPicture.draw();
         Thread.sleep(4000);
 
-
         createFoodObjects(max);
         Rectangle screen = scenario.getBackgroundWindow();
         screen.draw();
@@ -53,44 +51,15 @@ public class Game {
         Picture background = scenario.getBackground();
         background.draw();
 
-
         background.draw();
 
-
-
-        Picture avatar1 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame1.png");
-        Picture avatar2 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame2.png");
-        Picture avatar3 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame3.png");
-        Picture avatar4 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame4.png");
-        Picture avatar5 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame5.png");
-        Picture avatar6 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame6.png");
-        this.player = new Player("Player 1", avatar1, avatar2, avatar3, avatar4, avatar5, avatar6);
-
-
-        KeyboardListener keyboard = new KeyboardListener(player);
-
         start();
-
-
     }
 
+
     public void start() throws InterruptedException {
-
-
-
-        //list.printList(list);
-
-
-
-
-        // avatar1.draw();
-
-        /*ellipse = scenario.getEllipse();
-        ellipse.setColor(Color.YELLOW);
-        */
-
-
-
+       Player player = new Player("Player 1");
+        KeyboardListener keyboard = new KeyboardListener(player);
 
         int i = 0;
 
@@ -102,19 +71,20 @@ public class Game {
 
             Collections.shuffle(list);
 
+            player.draw();
+
             player.move();
 
-            player.spriteSheets();
-
+            //type.move(ellipse);
             move(picture[i], type[i]);
 
-            if (picture[i].getX() < -80) {
+            if (picture[i].getX() < -200) {
 
                 i++;
 
             }
 
-            if (i == max) {
+            if (i == max){
 
                 i = 0;
 
@@ -126,7 +96,7 @@ public class Game {
     }
 
     private void gameOver(){
-        player.avatar.delete(); // make for to delete all sprites
+        //player.getAvatar().clear(); // Como se alterou de sprites para lista isto não funciona.
         Picture gameOverPicture = new Picture(0,0,"org/academiadecodigo/tropaDELETE/resources/GameOver_resized.jpg");
         gameOverPicture.draw();
     }

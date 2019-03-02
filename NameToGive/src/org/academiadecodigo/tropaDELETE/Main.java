@@ -1,6 +1,6 @@
 package org.academiadecodigo.tropaDELETE;
-    // Ana vai criar a classe LinkedList
-    // Corrigir o movimento do boneco (smooth e mais rapido)
+
+// O grupo está tratar do score, health, e todas as cenas que faltam para o jogo
 
 import org.academiadecodigo.tropaDELETE.food.*;
 
