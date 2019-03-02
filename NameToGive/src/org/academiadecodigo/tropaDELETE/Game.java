@@ -24,6 +24,8 @@ public class Game {
 
     private Player player;
 
+    private Collison collison;
+
     private int max;
 
     private Scenario scenario;
@@ -51,6 +53,8 @@ public class Game {
         Picture background = scenario.getBackground();
         background.draw();
 
+        collison = new Collison();
+
         //background.draw();
 
         start();
@@ -77,6 +81,13 @@ public class Game {
 
             //type.move(ellipse);
             move(picture[i], type[i]);
+
+            if (collison.isCollide(player, picture[i])) {
+                picture[i].delete();
+                scenario.changeHealthBar();
+
+            }
+
 
             if (picture[i].getX() < -200) {
 
