@@ -23,13 +23,14 @@ public class Player implements Movable {
     private int currentHeight = 0;
     private int maxHeight = 10;
 
-    public Player(String name, Picture avatar1, Picture avatar2, Picture avatar3, Picture avatar4, Picture avatar5, Picture avatar6) {
-        this.avatar1 = avatar1;
-        this.avatar2 = avatar2;
-        this.avatar3 = avatar3;
-        this.avatar4 = avatar4;
-        this.avatar5 = avatar5;
-        this.avatar6 = avatar6;
+    public Player(String name) {
+
+        this.avatar1 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame1.png");
+        this.avatar2 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame2.png");
+        this.avatar3 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame3.png");
+        this.avatar4 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame4.png");
+        this.avatar5 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame5.png");
+        this.avatar6 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame6.png");
         this.avatar = spriteSheets();
         this.name = name;
         this.health = 5;
