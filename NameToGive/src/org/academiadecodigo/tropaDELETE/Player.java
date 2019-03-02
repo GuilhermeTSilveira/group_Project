@@ -21,7 +21,7 @@ public class Player implements Movable {
     private boolean lose;
     private boolean jump;
     private int currentHeight = 0;
-    private int maxHeight = -150;
+    private int maxHeight = 10;
 
     public Player(String name, Picture avatar1, Picture avatar2, Picture avatar3, Picture avatar4, Picture avatar5, Picture avatar6) {
         this.avatar1 = avatar1;
@@ -158,6 +158,11 @@ public class Player implements Movable {
         if (currentHeight > maxHeight) {
 
             avatar1.translate(0, -2);
+            avatar2.translate(0,-2);
+            avatar3.translate(0, -2);
+            avatar4.translate(0, -2);
+            avatar5.translate(0, -2);
+            avatar6.translate(0, -2);
 
             currentHeight -= 2;
         }
@@ -165,9 +170,49 @@ public class Player implements Movable {
 
     public void goDown() {
 
-        if ((avatar1.getHeight() + avatar1.getY()) <= Scenario.WINDOW_HEIGHT + 15) {
+        if ((avatar1.getHeight() + avatar1.getY()) <= Scenario.WINDOW_HEIGHT + 50) {
 
             avatar1.translate(0, 2);
+
+            currentHeight += 2;
+
+        }
+
+        if ((avatar2.getHeight() + avatar2.getY()) <= Scenario.WINDOW_HEIGHT + 50) {
+
+            avatar2.translate(0, 2);
+
+            currentHeight += 2;
+
+        }
+
+        if ((avatar3.getHeight() + avatar3.getY()) <= Scenario.WINDOW_HEIGHT + 50) {
+
+            avatar3.translate(0, 2);
+
+            currentHeight += 2;
+
+        }
+
+        if ((avatar4.getHeight() + avatar4.getY()) <= Scenario.WINDOW_HEIGHT + 50) {
+
+            avatar4.translate(0, 2);
+
+            currentHeight += 2;
+
+        }
+
+        if ((avatar5.getHeight() + avatar5.getY()) <= Scenario.WINDOW_HEIGHT + 50) {
+
+            avatar5.translate(0, 2);
+
+            currentHeight += 2;
+
+        }
+
+        if ((avatar6.getHeight() + avatar6.getY()) <= Scenario.WINDOW_HEIGHT + 50) {
+
+            avatar6.translate(0, 2);
 
             currentHeight += 2;
 

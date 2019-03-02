@@ -4,64 +4,79 @@ import org.academiadecodigo.simplegraphics.graphics.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.tropaDELETE.Scenario;
 
+import java.util.Collections;
+
 public enum FoodType {
 
-    CARROT(1, new Ellipse(500, 400, 80, 80)),
-    HAMBURGER(1, new Ellipse(500, 400, 80, 80)),
-    TOMATO(1, new Ellipse(500, 400, 80, 80)),
-    PIZZA(1, new Ellipse(500, 400, 80, 80));
+    CARROT(15, new Ellipse( 1300, 300 ,80,80)),
+    HAMBURGER(15, new Ellipse(1300, 440, 80, 80)),
+    TOMATO(15, new Ellipse(1300, 300, 80, 80)),
+    PIZZA(15, new Ellipse(1390, 440, 80, 80));
 
-    Ellipse ellipse;
-    int speed;
+    private Ellipse ellipse;
+    private int speed;
 
 
     FoodType(int speed, Ellipse ellipse) {
+
         this.speed = speed;
+
         this.ellipse = ellipse;
     }
 
-    FoodType(){
-
-    }
-
     public int getSpeed() {
+
         return speed;
+
     }
 
     public Ellipse getShape() {
+
         switch (this) {
+
             case CARROT:
+
                 this.ellipse.setColor(Color.ORANGE);
-                this.ellipse.fill();
+
                 break;
+
             case HAMBURGER:
+
                 this.ellipse.setColor(Color.YELLOW);
-                this.ellipse.fill();
+
                 break;
+
             case TOMATO:
+
                 this.ellipse.setColor(Color.RED);
-                this.ellipse.fill();
+
                 break;
+
             case PIZZA:
+
                 this.ellipse.setColor(Color.GREEN);
-                this.ellipse.fill();
+
                 break;
+
         }
 
         return ellipse;
     }
 
-    public void move(Ellipse ellipse){
+    public static void move(Ellipse ellipse, FoodType type){
 
-        if (ellipse.getX() > -10) {
+        if (ellipse.getX() > -100 ) {
 
-            ellipse.translate(-5, 0);
+            ellipse.translate(-type.getSpeed(), 0);
 
         }
 
-        if(ellipse.getX() == -10){
+        if(ellipse.getX() <= -100){
+
+            ellipse.translate(1300,0);
+
             ellipse.delete();
+
         }
     }
-
 }

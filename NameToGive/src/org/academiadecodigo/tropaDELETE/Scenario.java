@@ -9,7 +9,7 @@ public class Scenario {
 
     //Screen dimensions
 
-    public static final int PADDING = 10;
+    public static final int PADDING = 0;
     public static final int WINDOW_WIDTH = 990 + PADDING;
     public static final int WINDOW_HEIGHT = 500 + PADDING;
 

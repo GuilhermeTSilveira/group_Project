@@ -15,8 +15,11 @@ public class Junk extends Food{
     }
 
     public FoodType getTypes(){ // Create random for types
+
         int random = (int)(Math.random() * type.length);
+
         return random < 1 ? type[0] : type[1];
+
     }
 
 }
