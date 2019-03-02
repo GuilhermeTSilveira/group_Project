@@ -20,11 +20,11 @@ public class Collison {
        int topX = player.avatar.getX();
 
 
-        //OBJECT
+      /*  //OBJECT
        int objectRightTopX = (game.ellipse.getX() + game.ellipse.getWidth());
        int objectLeftTopX = game.ellipse.getX();
        int objectLeftTopY = game.ellipse.getY();
-
+       */
 
 
     public boolean isCollide(Rectangle avatar, Ellipse ellipse) {
