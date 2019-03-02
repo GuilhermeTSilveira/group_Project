@@ -53,53 +53,51 @@ public class Player implements Movable {
         if(maxFrames >= 0 && maxFrames < 5) {
 
             listPicture.get(0).draw();
+            listPicture.get(5).delete();
             return;
         }
-
-        listPicture.get(0).delete();
 
         if(maxFrames >= 5 && maxFrames < 10) {
 
             listPicture.get(1).draw();
+            listPicture.get(0).delete();
             return;
         }
-
-        listPicture.get(1).delete();
 
         if(maxFrames >= 10 && maxFrames < 15) {
 
             listPicture.get(2).draw();
+            listPicture.get(1).delete();
             i++;
             return;
         }
 
-        listPicture.get(2).delete();
 
         if(maxFrames >= 15 && maxFrames < 20) {
 
             listPicture.get(3).draw();
+            listPicture.get(2).delete();
             i++;
             return;
         }
 
-        listPicture.get(3).delete();
 
         if(maxFrames >= 20 && maxFrames < 25) {
 
             listPicture.get(4).draw();
+            listPicture.get(3).delete();
             i++;
             return;
         }
 
-        listPicture.get(4).delete();
 
         if(maxFrames >= 25 && maxFrames < 30) {
 
             listPicture.get(5).draw();
+            listPicture.get(4).delete();
+
             return;
         }
-
-        listPicture.get(5).delete();
 
         if(maxFrames == 30){
             maxFrames = 0;
