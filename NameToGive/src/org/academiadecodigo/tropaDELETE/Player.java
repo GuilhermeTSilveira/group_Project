@@ -169,6 +169,7 @@ public class Player implements Movable {
         return this.lose;
     }
 
+
     @Override
     public void translate(double v, double v1) {
 

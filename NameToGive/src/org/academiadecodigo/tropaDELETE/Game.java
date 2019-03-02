@@ -30,6 +30,7 @@ public class Game {
 
     private Scenario scenario;
 
+
     public Game(int max) {
 
         this.max = max;
@@ -57,6 +58,8 @@ public class Game {
 
         //background.draw();
 
+        scenario.healthbar();
+
         start();
     }
 
@@ -78,6 +81,7 @@ public class Game {
             player.draw();
 
             player.move();
+
 
             //type.move(ellipse);
             move(picture[i], type[i]);
