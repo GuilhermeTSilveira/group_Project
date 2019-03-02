@@ -18,7 +18,7 @@ public class Game {
 
     private FoodType[] type;
 
-    private Ellipse[] ellipse;
+    private Picture[] picture;
 
     private int max;
 
@@ -39,7 +39,7 @@ public class Game {
 
         createFoodObjects(max);
 
-        list.printList(list);
+        //list.printList(list);
 
         Picture avatar1 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame1.png");
         Picture avatar2 = new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame2.png");
@@ -72,7 +72,7 @@ public class Game {
 
             Thread.sleep(15);
 
-            ellipse[i].fill();
+            picture[i].draw();
 
             Collections.shuffle(list);
 
@@ -80,16 +80,15 @@ public class Game {
 
             player.spriteSheets();
 
-            type.move(ellipse);
-            move(ellipse[i], type[i]);
+            move(picture[i], type[i]);
 
-            if(ellipse[i].getX() < -80) {
+            if (picture[i].getX() < -80) {
 
                 i++;
 
             }
 
-            if (i == max){
+            if (i == max) {
 
                 i = 0;
 
@@ -99,22 +98,22 @@ public class Game {
 
     private void createFoodObjects(int max) {
 
-        ellipse = new Ellipse[max];
+        picture = new Picture[max];
 
         for (int i = 0; i < max; i++) {
 
             type[i] = Food.createFoodObjects();
 
-            ellipse[i] = type[i].getShape();
+            picture[i] = type[i].getShape();
 
             list.add(type[i]);
 
         }
     }
 
-    public void move(Ellipse ellipse, FoodType type){
+    public void move(Picture picture, FoodType type) {
 
-        FoodType.move(ellipse, type);
+        FoodType.move(picture, type);
     }
 
 }

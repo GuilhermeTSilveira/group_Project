@@ -2,26 +2,23 @@ package org.academiadecodigo.tropaDELETE.food;
 
 import org.academiadecodigo.simplegraphics.graphics.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.academiadecodigo.tropaDELETE.Scenario;
-
-import java.util.Collections;
 
 public enum FoodType {
 
-    CARROT(15, new Ellipse( 1300, 300 ,80,80)),
-    HAMBURGER(15, new Ellipse(1300, 440, 80, 80)),
-    TOMATO(15, new Ellipse(1300, 300, 80, 80)),
-    PIZZA(15, new Ellipse(1390, 440, 80, 80));
+    PEPPER(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/Pepper.png")),
+    HAMBURGER(15, new Picture (1300, 440, "org/academiadecodigo/tropaDELETE/resources/food/6.png")),
+    BROCOLLI(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/Brocolli.png")),
+    PIZZA(15, new Picture(1390, 440, "org/academiadecodigo/tropaDELETE/resources/food/Avoccato.png"));
 
-    private Ellipse ellipse;
+    private Picture picture;
     private int speed;
 
 
-    FoodType(int speed, Ellipse ellipse) {
+    FoodType(int speed, Picture picture) {
 
         this.speed = speed;
 
-        this.ellipse = ellipse;
+        this.picture = picture;
     }
 
     public int getSpeed() {
@@ -30,52 +27,23 @@ public enum FoodType {
 
     }
 
-    public Ellipse getShape() {
-
-        switch (this) {
-
-            case CARROT:
-
-                this.ellipse.setColor(Color.ORANGE);
-
-                break;
-
-            case HAMBURGER:
-
-                this.ellipse.setColor(Color.YELLOW);
-
-                break;
-
-            case TOMATO:
-
-                this.ellipse.setColor(Color.RED);
-
-                break;
-
-            case PIZZA:
-
-                this.ellipse.setColor(Color.GREEN);
-
-                break;
-
-        }
-
-        return ellipse;
+    public Picture getShape() {
+        return picture;
     }
 
-    public static void move(Ellipse ellipse, FoodType type){
+    public static void move(Picture picture, FoodType type){
 
-        if (ellipse.getX() > -100 ) {
+        if (picture.getX() > -100 ) {
 
-            ellipse.translate(-type.getSpeed(), 0);
+            picture.translate(-type.getSpeed(), 0);
 
         }
 
-        if(ellipse.getX() <= -100){
+        if(picture.getX() <= -100){
 
-            ellipse.translate(1300,0);
+            picture.translate(1300,0);
 
-            ellipse.delete();
+            picture.delete();
 
         }
     }
