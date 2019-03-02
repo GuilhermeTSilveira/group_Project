@@ -5,10 +5,14 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Player implements Movable {
 
+    Picture avatar;
     Picture avatar1;
     Picture avatar2;
-    Picture avatar;
-    private int maxFrames = 24;
+    Picture avatar3;
+    Picture avatar4;
+    Picture avatar5;
+    Picture avatar6;
+    private int maxFrames = 0;
 
     private String name;
     private int health;
@@ -19,9 +23,13 @@ public class Player implements Movable {
     private int currentHeight = 0;
     private int maxHeight = -150;
 
-    public Player(String name, Picture avatar1, Picture avatar2) {
+    public Player(String name, Picture avatar1, Picture avatar2, Picture avatar3, Picture avatar4, Picture avatar5, Picture avatar6) {
         this.avatar1 = avatar1;
         this.avatar2 = avatar2;
+        this.avatar3 = avatar3;
+        this.avatar4 = avatar4;
+        this.avatar5 = avatar5;
+        this.avatar6 = avatar6;
         this.avatar = spriteSheets();
         this.name = name;
         this.health = 5;
@@ -37,19 +45,74 @@ public class Player implements Movable {
 
     public Picture spriteSheets() {
 
-        avatar = avatar2;
+        avatar = avatar1;
+        maxFrames++;
 
-        maxFrames--;
-
-        if (maxFrames == 0) {
-            maxFrames = 24;
+        if (maxFrames == 72) {
+            maxFrames = 0;
         }
 
-        if (maxFrames >= 12 && maxFrames <= 24) {
+        if (maxFrames > 60 && maxFrames <= 72) {
+
+            avatar6.draw();
+            avatar = avatar6;
+            avatar1.delete();
+            avatar2.delete();
+            avatar3.delete();
+            avatar4.delete();
+            avatar5.delete();
+            return avatar;
+
+        }
+
+        if (maxFrames > 48 && maxFrames <= 60) {
+
+            avatar5.draw();
+            avatar = avatar5;
+            avatar1.delete();
+            avatar2.delete();
+            avatar3.delete();
+            avatar4.delete();
+            avatar6.delete();
+            return avatar;
+
+        }
+
+        if (maxFrames > 36 && maxFrames <= 48) {
+
+            avatar4.draw();
+            avatar = avatar4;
+            avatar1.delete();
+            avatar2.delete();
+            avatar3.delete();
+            avatar5.delete();
+            avatar6.delete();
+            return avatar;
+
+        }
+
+        if (maxFrames > 24 && maxFrames <= 36) {
+
+            avatar3.draw();
+            avatar = avatar3;
+            avatar1.delete();
+            avatar2.delete();
+            avatar4.delete();
+            avatar5.delete();
+            avatar6.delete();
+            return avatar;
+
+        }
+
+        if (maxFrames > 12 && maxFrames <= 24) {
 
             avatar2.draw();
             avatar = avatar2;
             avatar1.delete();
+            avatar3.delete();
+            avatar4.delete();
+            avatar5.delete();
+            avatar6.delete();
             return avatar;
 
         }
@@ -57,6 +120,10 @@ public class Player implements Movable {
         avatar1.draw();
         avatar = avatar1;
         avatar2.delete();
+        avatar3.delete();
+        avatar4.delete();
+        avatar5.delete();
+        avatar6.delete();
 
         return avatar;
     }

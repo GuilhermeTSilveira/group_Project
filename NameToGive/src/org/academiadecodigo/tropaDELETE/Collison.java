@@ -21,9 +21,10 @@ public class Collison {
 
 
         //OBJECT
+       /*
        int objectRightTopX = (game.ellipse.getX() + game.ellipse.getWidth());
        int objectLeftTopX = game.ellipse.getX();
-       int objectLeftTopY = game.ellipse.getY();
+       int objectLeftTopY = game.ellipse.getY(); */
 
 
 
@@ -35,9 +36,9 @@ public class Collison {
     }
 
     private boolean isLeftCollide() {
-        if (rightTopX >= objectLeftTopX && leftDown >= objectLeftTopY){
+        /* if (rightTopX >= objectLeftTopX && leftDown >= objectLeftTopY){
             return true;
-        }
+        } */
         return false;
     }
 
