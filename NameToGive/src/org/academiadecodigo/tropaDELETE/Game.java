@@ -39,17 +39,13 @@ public class Game {
 
         createFoodObjects(max);
 
-        Rectangle avatar = new Rectangle(250, 450, 40, 80);
+        Rectangle avatar = new Rectangle(250, 430, 40, 80);
 
         Rectangle screen = scenario.getBackgroundWindow();
         screen.draw();
 
         Picture background = scenario.getBackground();
         background.draw();
-
-        Rectangle rightBorder = scenario.getRightBorder();
-        rightBorder.setColor(Color.BLACK);
-        rightBorder.fill();
 
 
         background.draw();
@@ -62,6 +58,7 @@ public class Game {
 
 
         Player player = new Player("Player 1", avatar);
+
         KeyboardListener keyboard = new KeyboardListener(player);
 
         int i = 0;
@@ -76,12 +73,17 @@ public class Game {
 
             player.move();
 
-            type[i].move(ellipse[i]);
+            move(ellipse[i], type[i]);
 
-            if(type[i].isDeleted()) {
+            if(ellipse[i].getX() < -80) {
 
-                ellipse[i].fill();
                 i++;
+
+            }
+
+            if (i == max){
+
+                i = 0;
 
             }
         }
@@ -99,8 +101,12 @@ public class Game {
 
             list.add(type[i]);
 
-
         }
+    }
+
+    public void move(Ellipse ellipse, FoodType type){
+
+        FoodType.move(ellipse, type);
     }
 
 }

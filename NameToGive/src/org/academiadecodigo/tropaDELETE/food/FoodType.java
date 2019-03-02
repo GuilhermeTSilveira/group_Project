@@ -8,73 +8,75 @@ import java.util.Collections;
 
 public enum FoodType {
 
-    CARROT(1, new Ellipse( 990, 450 ,80,80)),
-    HAMBURGER(1, new Ellipse(990, 450, 80, 80)),
-    TOMATO(1, new Ellipse(990, 450, 80, 80)),
-    PIZZA(1, new Ellipse(990, 450, 80, 80));
+    CARROT(10, new Ellipse( 1300, 440 ,80,80)),
+    HAMBURGER(15, new Ellipse(1300, 440, 80, 80)),
+    TOMATO(8, new Ellipse(1300, 440, 80, 80)),
+    PIZZA(14, new Ellipse(1390, 440, 80, 80));
 
-    Ellipse ellipse;
-    private boolean delete;
-    int speed;
+    private Ellipse ellipse;
+    private int speed;
 
 
     FoodType(int speed, Ellipse ellipse) {
+
         this.speed = speed;
+
         this.ellipse = ellipse;
-        this.delete = false;
     }
 
     public int getSpeed() {
+
         return speed;
+
     }
 
     public Ellipse getShape() {
+
         switch (this) {
+
             case CARROT:
+
                 this.ellipse.setColor(Color.ORANGE);
+
                 break;
+
             case HAMBURGER:
+
                 this.ellipse.setColor(Color.YELLOW);
+
                 break;
+
             case TOMATO:
+
                 this.ellipse.setColor(Color.RED);
+
                 break;
+
             case PIZZA:
+
                 this.ellipse.setColor(Color.GREEN);
+
                 break;
+
         }
 
         return ellipse;
     }
 
-    public void move(Ellipse ellipse){
+    public static void move(Ellipse ellipse, FoodType type){
 
-        if (ellipse.getX() > -50) {
+        if (ellipse.getX() > -100 ) {
 
-            ellipse.translate(-5, 0);
+            ellipse.translate(-type.getSpeed(), 0);
 
         }
 
-        if(ellipse.getX() == -50){
+        if(ellipse.getX() <= -100){
+
+            ellipse.translate(1300,0);
 
             ellipse.delete();
 
-            ellipse.translate(1050,0);
-
-            delete = true;
         }
     }
-
-    public void resetPosition(Ellipse ellipse){
-
-
-
-    }
-
-    public boolean isDeleted(){
-
-        return this.delete;
-
-    }
-
 }
