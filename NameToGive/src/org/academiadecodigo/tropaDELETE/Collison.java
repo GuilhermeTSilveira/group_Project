@@ -43,8 +43,9 @@ public class Collison {
     }
 
 
-    //private boolean isRightCollide() {
-      //  if ()
+    //private boolean isPassedBy {
+      //  if (avatar.getX() > picture.getX() + picture.getWidth())
+            return false;
     //}
     */
 

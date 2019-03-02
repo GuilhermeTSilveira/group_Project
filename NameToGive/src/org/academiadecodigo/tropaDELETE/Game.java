@@ -51,7 +51,7 @@ public class Game {
         Picture background = scenario.getBackground();
         background.draw();
 
-        background.draw();
+        //background.draw();
 
         start();
     }
