@@ -5,24 +5,29 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Collison {
 
+    private Player player;
 
-
-    public boolean isCollide(Player player, Picture picture) {
-        if (isPassedBy(player, picture)) {
-            return false;
-        }
-        return (isXCollide(player, picture) && isYCollide(player,picture));
+    public Collison(Player player) {
+        this.player = player;
     }
 
-    private boolean isXCollide(Player player, Picture picture) {
+
+    public boolean isCollide(Picture picture) {
+        if (isPassedBy(picture)) {
+            return false;
+        }
+        return (isXCollide(picture) && isYCollide(picture));
+    }
+
+    private boolean isXCollide(Picture picture) {
         return (200 >= picture.getX());
     }
 
-    private boolean isYCollide(Player player, Picture picture) {
+    private boolean isYCollide(Picture picture) {
         return (660 >= picture.getY());
     }
 
-    private boolean isPassedBy(Player player, Picture picture) {
+    private boolean isPassedBy(Picture picture) {
         return (150 >= picture.getMaxX());
     }
 
