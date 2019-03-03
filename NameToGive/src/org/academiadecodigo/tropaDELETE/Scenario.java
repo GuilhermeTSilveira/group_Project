@@ -23,7 +23,7 @@ public class Scenario {
 
     public Scenario() {
         backgroundWindow = new Rectangle(PADDING, PADDING, WINDOW_WIDTH, WINDOW_HEIGHT);
-        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "resources/images/background/double_size.png");
+        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "Images/Background/double_size.png");
     }
 
     public Rectangle getBackgroundWindow() {
@@ -46,7 +46,7 @@ public class Scenario {
     public void healthbar(Player player) {
         this.healthBar = new Rectangle[player.MAX_HEALTH];
 
-        outlineHealthBar = new Picture(643, 34, "Images/Healthbar/3dheart.png");
+        outlineHealthBar = new Picture(643, 34, "org/academiadecodigo/tropaDELETE/resources/Healthbar/3dheart.png");
         outlineHealthBar.draw();
 
 
