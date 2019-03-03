@@ -71,7 +71,6 @@ public class Player implements Movable {
     public void takeDmg() {
         health--;
         hitSound.play(true);
-        return;
     }
 
     public void draw() {

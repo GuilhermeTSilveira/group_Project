@@ -20,15 +20,15 @@ public class Collison {
     }
 
     private boolean isXCollide(Picture picture) {
-        return (200 >= picture.getX());
+        return (player.listPicture.get(0).getMaxX()-30 >= picture.getX());
     }
 
     private boolean isYCollide(Picture picture) {
-        return (660 >= picture.getY());
+        return (player.listPicture.get(0).getMaxY()-30 >= picture.getY());
     }
 
     private boolean isPassedBy(Picture picture) {
-        return (150 >= picture.getMaxX());
+        return (player.listPicture.get(0).getX() >= picture.getMaxX());
     }
 
 }
