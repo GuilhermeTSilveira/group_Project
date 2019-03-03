@@ -33,8 +33,8 @@ public class Player implements Movable {
         listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame4.png"));
         listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame5.png"));
         listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame6.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/up.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/down.png"));
+        listPicture.add(new Picture(235,375, "org/academiadecodigo/tropaDELETE/resources/up.png"));
+        listPicture.add(new Picture(235,375, "org/academiadecodigo/tropaDELETE/resources/down.png"));
 
         this.name = name;
         this.health = 10;
@@ -53,7 +53,7 @@ public class Player implements Movable {
         return this.health;
     }
 
-    public void draw() {
+    public void run() {
 
         maxFrames++;
 
@@ -135,24 +135,26 @@ public class Player implements Movable {
             return;
         }
 
-       goUp();
+        goUp();
     }
 
-    public void goUp() {
+    public void goUp() { // acabar de ver essa parte
 
-        if (jump && currentHeight >= maxHeight) {
+        listPicture.get(0).delete();
+        listPicture.get(1).delete();
+        listPicture.get(2).delete();
+        listPicture.get(3).delete();
+        listPicture.get(4).delete();
+        listPicture.get(5).delete();
 
-            listPicture.get(0).delete();
-            listPicture.get(1).delete();
-            listPicture.get(2).delete();
-            listPicture.get(3).delete();
-            listPicture.get(4).delete();
-            listPicture.get(5).delete();
-            listPicture.get(6).delete();
-            listPicture.get(7).delete();
+
+        if (jump && currentHeight > maxHeight) {
 
             listPicture.get(6).draw();
             listPicture.get(6).translate(0,-2);
+
+            listPicture.get(7).delete();
+            listPicture.get(7).translate(0,-2);
 
             System.out.println(currentHeight);
             currentHeight -= 2;
@@ -162,22 +164,17 @@ public class Player implements Movable {
 
     public void goDown() {
 
-        if (currentHeight < 0) {
-
-            listPicture.get(0).delete();
-            listPicture.get(1).delete();
-            listPicture.get(2).delete();
-            listPicture.get(3).delete();
-            listPicture.get(4).delete();
-            listPicture.get(5).delete();
-            listPicture.get(6).delete();
-            listPicture.get(7).delete();
+        if (currentHeight <= 0) {
 
             listPicture.get(7).draw();
             listPicture.get(7).translate(0,+2);
 
+            listPicture.get(6).delete();
+            listPicture.get(6).translate(0,+2);
+
             currentHeight += 2;
 
+            return;
         }
     }
 

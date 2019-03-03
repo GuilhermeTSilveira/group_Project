@@ -78,7 +78,7 @@ public class Game {
 
             Collections.shuffle(list);
 
-            player.draw();
+            player.run();
 
             player.move();
 
