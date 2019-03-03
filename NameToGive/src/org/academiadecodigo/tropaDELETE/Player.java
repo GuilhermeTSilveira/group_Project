@@ -165,25 +165,25 @@ public class Player implements Movable {
         if(currentHeight > maxHeight){
 
             listPicture.get(0).delete();
-            listPicture.get(0).translate(0, -5);
+            listPicture.get(0).translate(0, -10);
             listPicture.get(1).delete();
-            listPicture.get(1).translate(0, -5);
+            listPicture.get(1).translate(0, -10);
             listPicture.get(2).delete();
-            listPicture.get(2).translate(0, -5);
+            listPicture.get(2).translate(0, -10);
             listPicture.get(3).delete();
-            listPicture.get(3).translate(0, -5);
+            listPicture.get(3).translate(0, -10);
             listPicture.get(4).delete();
-            listPicture.get(4).translate(0, -5);
+            listPicture.get(4).translate(0, -10);
             listPicture.get(5).delete();
-            listPicture.get(5).translate(0, -5);
+            listPicture.get(5).translate(0, -10);
 
             listPicture.get(6).draw();
-            listPicture.get(6).translate(0,-5);
+            listPicture.get(6).translate(0,-10);
 
             listPicture.get(7).delete();
-            listPicture.get(7).translate(0,-5);
+            listPicture.get(7).translate(0,-10);
             
-            currentHeight -= 5;
+            currentHeight -= 10;
 
         }
     }
@@ -193,25 +193,25 @@ public class Player implements Movable {
         if (currentHeight <= 0) {
 
             listPicture.get(0).delete();
-            listPicture.get(0).translate(0, +5);
+            listPicture.get(0).translate(0, +10);
             listPicture.get(1).delete();
-            listPicture.get(1).translate(0, +5);
+            listPicture.get(1).translate(0, +10);
             listPicture.get(2).delete();
-            listPicture.get(2).translate(0, +5);
+            listPicture.get(2).translate(0, +10);
             listPicture.get(3).delete();
-            listPicture.get(3).translate(0, +5);
+            listPicture.get(3).translate(0, +10);
             listPicture.get(4).delete();
-            listPicture.get(4).translate(0, +5);
+            listPicture.get(4).translate(0, +10);
             listPicture.get(5).delete();
-            listPicture.get(5).translate(0, +5);
+            listPicture.get(5).translate(0, +10);
 
             listPicture.get(7).draw();
-            listPicture.get(7).translate(0,+5);
+            listPicture.get(7).translate(0,+10);
 
             listPicture.get(6).delete();
-            listPicture.get(6).translate(0,+5);
+            listPicture.get(6).translate(0,+10);
 
-            currentHeight += 5;
+            currentHeight += 10;
 
             return;
         }
