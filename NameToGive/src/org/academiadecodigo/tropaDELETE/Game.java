@@ -28,7 +28,6 @@ public class Game {
 
     private Scenario scenario;
 
-
     public Game(int max) {
 
         this.max = max;
@@ -52,9 +51,7 @@ public class Game {
         Picture background = scenario.getBackground();
         background.draw();
 
-
         //background.draw();
-
 
         start();
     }
@@ -68,7 +65,7 @@ public class Game {
         int i = 0;
 
         scenario.healthbar(player);
-
+        scenario.score(player);
 
         while (true) {
 
@@ -98,7 +95,13 @@ public class Game {
                 System.out.println("antes do take damage" + player.getHealth());
                 scenario.changeHealthBar(player);
                 player.takeDmg();
-                System.out.println("depois do take damage" + player.getHealth());
+
+                //System.out.println("depois do take damage" + player.getHealth());
+
+                scenario.changeScore(player);
+                scenario.score(player);
+
+                System.out.println("Score: " + player.getScore());
             }
 
 

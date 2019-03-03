@@ -2,10 +2,10 @@ package org.academiadecodigo.tropaDELETE;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Scenario {
-
 
     //Screen dimensions
     private Rectangle[] healthBar;
@@ -13,15 +13,16 @@ public class Scenario {
     public static final int WINDOW_WIDTH = 1042 + PADDING;
     public static final int WINDOW_HEIGHT = 598 + PADDING;
 
-
     private Rectangle backgroundWindow;
     private Picture background;
     private Picture outlineHealthBar;
 
+    private Text score;
 
     public Scenario() {
         backgroundWindow = new Rectangle(PADDING, PADDING, WINDOW_WIDTH, WINDOW_HEIGHT);
         background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "org/academiadecodigo/tropaDELETE/resources/Background/double_size.png");
+
     }
 
     public Rectangle getBackgroundWindow() {
@@ -33,21 +34,18 @@ public class Scenario {
     }
 
     public void moveBackGround() {
-        background.translate(-2,0);
+        background.translate(-2, 0);
     }
 
     public void resetBackGround() {
-        background.translate(WINDOW_WIDTH,0);
+        background.translate(WINDOW_WIDTH, 0);
     }
-
 
     public void healthbar(Player player) {
         this.healthBar = new Rectangle[player.MAX_HEALTH];
 
         outlineHealthBar = new Picture(643, 34, "org/academiadecodigo/tropaDELETE/resources/Healthbar/3dheart.png");
         outlineHealthBar.draw();
-
-
 
         healthBar[0] = new Rectangle(700, 40, 30, 30);
         healthBar[0].setColor(Color.RED);
@@ -91,10 +89,26 @@ public class Scenario {
 
     }
 
-
     public void changeHealthBar(Player player) {
-        int i = player.getHealth()-1;
+        int i = player.getHealth() - 1;
         System.out.println(healthBar[i].toString() + i);
         healthBar[i].delete();
+    }
+
+    public void score(Player player){
+
+        String strI = "" + player.getScore();
+        score = new Text(985,130, strI);
+        score.draw();
+
+    }
+
+    public void changeScore(Player player){
+
+        int countScore = player.getScore() + 1;
+        player.setScore(countScore);
+
+        score.delete();
+
     }
 }
