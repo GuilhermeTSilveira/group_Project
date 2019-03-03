@@ -24,6 +24,8 @@ public class Game {
 
     private Player player;
 
+    private Collison collison;
+
     private int max;
 
     private Scenario scenario;
@@ -52,19 +54,22 @@ public class Game {
         Picture background = scenario.getBackground();
         background.draw();
 
-        background.draw();
 
-        scenario.healthbar();
+        //background.draw();
+
 
         start();
     }
 
 
     public void start() throws InterruptedException {
-       Player player = new Player("Player 1");
+        Player player = new Player("Player 1");
         KeyboardListener keyboard = new KeyboardListener(player);
+        collison = new Collison(player);
+        scenario.healthbar(player);
 
         int i = 0;
+
 
         while (true) {
 
@@ -78,9 +83,21 @@ public class Game {
 
             player.move();
 
+            scenario.moveBackGround();
+            if (scenario.getBackground().getX() == -1042) {
+                scenario.resetBackGround();
+            }
 
             //type.move(ellipse);
             move(picture[i], type[i]);
+
+            if (collison.isCollide(picture[i])) {
+                picture[i].delete();
+                scenario.changeHealthBar(player);
+                //player.health--;
+
+            }
+
 
             if (picture[i].getX() < -200) {
 
@@ -96,6 +113,7 @@ public class Game {
             if (player.getHealth() == 0){
                gameOver();
             }
+
         }
     }
 

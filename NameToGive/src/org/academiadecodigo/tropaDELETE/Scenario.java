@@ -2,6 +2,7 @@ package org.academiadecodigo.tropaDELETE;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -10,7 +11,6 @@ public class Scenario {
 
     //Screen dimensions
     private Rectangle[] healthBar;
-    private Player player;
     public static final int PADDING = 0;
     public static final int WINDOW_WIDTH = 990 + PADDING;
     public static final int WINDOW_HEIGHT = 500 + PADDING;
@@ -20,24 +20,9 @@ public class Scenario {
     private Picture background;
 
 
-    //Borders limits and dimensions
-    public static final int BORDER_WIDTH = 80;
-
-
-    private Rectangle topBorder;
-    private Rectangle leftBorder;
-    private Rectangle rightBorder;
-
-    private Ellipse ellipse;
-
     public Scenario() {
         backgroundWindow = new Rectangle(PADDING, PADDING, WINDOW_WIDTH, WINDOW_HEIGHT);
-        topBorder = new Rectangle(PADDING, PADDING, WINDOW_WIDTH, BORDER_WIDTH / 2);
-        leftBorder = new Rectangle(PADDING, PADDING, BORDER_WIDTH, WINDOW_HEIGHT);
-        rightBorder = new Rectangle(WINDOW_WIDTH, PADDING, BORDER_WIDTH + PADDING, WINDOW_HEIGHT);
-        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "org/academiadecodigo/tropaDELETE/resources/simetrico_fundo.png");
-        ellipse = new Ellipse(backgroundWindow.getWidth(), backgroundWindow.getHeight() - 65, 80, 80);
-        this.player = new Player("One");
+        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "org/academiadecodigo/tropaDELETE/resources/double_size.png");
     }
 
     public Rectangle getBackgroundWindow() {
@@ -48,23 +33,16 @@ public class Scenario {
         return background;
     }
 
-    public Rectangle getTopBorder() {
-        return topBorder;
+    public void moveBackGround() {
+        background.translate(-2,0);
     }
 
-    public Rectangle getLeftBorder() {
-        return leftBorder;
+    public void resetBackGround() {
+        background.translate(1042,0);
     }
 
-    public Rectangle getRightBorder() {
-        return rightBorder;
-    }
 
-    public Ellipse getEllipse() {
-        return ellipse;
-    }
-
-    public void healthbar() {
+    public void healthbar(Player player) {
         this.healthBar = new Rectangle[player.getHealth()];
 
         healthBar[0] = new Rectangle(700, 40, 140, 30);
@@ -105,9 +83,9 @@ public class Scenario {
 
     }
 
-    public void changeHealthBar() {
-        int size = healthBar.length;
-        healthBar[size].delete();
-        size--;
+
+    public void changeHealthBar(Player player) {
+        int i = player.getHealth() -1;
+        healthBar[i].delete();
     }
 }
