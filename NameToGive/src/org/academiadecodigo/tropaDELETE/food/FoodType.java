@@ -32,13 +32,13 @@ public enum FoodType {
 
     public static void move(Picture picture, FoodType type){
 
-        if (picture.getX() > -200 ) {
+        if (picture.getX() > -250 ) {
 
             picture.translate(-type.getSpeed(), 0);
 
         }
 
-        if(picture.getX() <= -200){
+        if(picture.getX() <= -250){
 
             picture.translate(1300,0);
 
