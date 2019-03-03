@@ -20,7 +20,7 @@ public class Player implements Movable {
     private boolean lose;
     private boolean jump;
     private int currentHeight = 0;
-    private int maxHeight = 10;
+    private int maxHeight = -100;
     private int i;
 
     public Player(String name) {
@@ -33,13 +33,16 @@ public class Player implements Movable {
         listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame4.png"));
         listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame5.png"));
         listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame6.png"));
+        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/up.png"));
+        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/down.png"));
 
         this.name = name;
         this.health = 10;
         this.lose = false;
 
-    }
+        this.jump = false;
 
+    }
 
     public void setJump(boolean state) {
 
@@ -53,6 +56,9 @@ public class Player implements Movable {
     public void draw() {
 
         maxFrames++;
+
+        listPicture.get(6).delete();
+        listPicture.get(7).delete();
 
         if(maxFrames >= 0 && maxFrames < 5) {
 
@@ -106,7 +112,6 @@ public class Player implements Movable {
         if(maxFrames == 30){
             maxFrames = 0;
         }
-
     }
 
     public Picture getAvatar() {
@@ -130,30 +135,50 @@ public class Player implements Movable {
             return;
         }
 
-
-        goUp();
+       goUp();
     }
 
     public void goUp() {
 
-        if (currentHeight > maxHeight) {
+        if (jump && currentHeight >= maxHeight) {
 
-            listPicture.get(0).draw();
-            listPicture.get(0).translate(0,-2);
+            listPicture.get(0).delete();
+            listPicture.get(1).delete();
+            listPicture.get(2).delete();
+            listPicture.get(3).delete();
+            listPicture.get(4).delete();
+            listPicture.get(5).delete();
+            listPicture.get(6).delete();
+            listPicture.get(7).delete();
 
+            listPicture.get(6).draw();
+            listPicture.get(6).translate(0,-2);
+
+            System.out.println(currentHeight);
             currentHeight -= 2;
+
         }
     }
 
     public void goDown() {
 
-        /*if ((avatar1.getHeight() + avatar1.getY()) <= Scenario.WINDOW_HEIGHT + 50) {
+        if (currentHeight < 0) {
 
-            avatar1.translate(0, 2);
+            listPicture.get(0).delete();
+            listPicture.get(1).delete();
+            listPicture.get(2).delete();
+            listPicture.get(3).delete();
+            listPicture.get(4).delete();
+            listPicture.get(5).delete();
+            listPicture.get(6).delete();
+            listPicture.get(7).delete();
+
+            listPicture.get(7).draw();
+            listPicture.get(7).translate(0,+2);
 
             currentHeight += 2;
 
-        }*/
+        }
     }
 
     public void collide() {

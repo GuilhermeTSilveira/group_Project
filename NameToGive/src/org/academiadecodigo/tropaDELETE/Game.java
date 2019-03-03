@@ -57,7 +57,6 @@ public class Game {
 
         //background.draw();
 
-
         start();
     }
 
