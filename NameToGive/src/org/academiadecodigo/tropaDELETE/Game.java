@@ -110,9 +110,7 @@ public class Game {
 
 
                 //System.out.println("depois do take damage" + player.getHealth());
-
                 scenario.changeScore(player);
-                scenario.score(player);
 
                 System.out.println("Score: " + player.getScore());
             }
