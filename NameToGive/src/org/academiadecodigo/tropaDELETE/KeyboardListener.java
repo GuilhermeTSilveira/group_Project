@@ -25,7 +25,10 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
         @Override
         public void keyPressed(KeyboardEvent keyboardEvent) {
 
-            player.setJump(true);
+            if (player.listPicture.get(0).getMaxY() >= 500) {
+
+                player.setJump(true);
+            }
 
         }
 
