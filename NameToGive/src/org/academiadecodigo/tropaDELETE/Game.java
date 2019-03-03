@@ -49,7 +49,7 @@ public class Game {
     }
 
     public void init() throws InterruptedException {
-        this.initialPicture = new Picture(0, 0, "Images/Background/InitialScreen_resized.jpg");
+        this.initialPicture = new Picture(0, 0, "resources/images/background/InitialScreen_resized.jpg");
         initialPicture.draw();
         Thread.sleep(4000);
 

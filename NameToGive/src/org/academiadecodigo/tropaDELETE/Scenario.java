@@ -2,7 +2,6 @@ package org.academiadecodigo.tropaDELETE;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Scenario {
@@ -19,11 +18,10 @@ public class Scenario {
     private Picture background;
     private Picture outlineHealthBar;
 
-    private Text score;
 
     public Scenario() {
         backgroundWindow = new Rectangle(PADDING, PADDING, WINDOW_WIDTH, WINDOW_HEIGHT);
-        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "Images/Background/double_size.png");
+        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "org/academiadecodigo/tropaDELETE/resources/Background/double_size.png");
     }
 
     public Rectangle getBackgroundWindow() {
@@ -48,8 +46,6 @@ public class Scenario {
 
         outlineHealthBar = new Picture(643, 34, "org/academiadecodigo/tropaDELETE/resources/Healthbar/3dheart.png");
         outlineHealthBar.draw();
-
-
 
         healthBar[0] = new Rectangle(700, 40, 30, 30);
         healthBar[0].setColor(Color.RED);
@@ -93,26 +89,9 @@ public class Scenario {
 
     }
 
-
     public void changeHealthBar(Player player) {
         int i = player.getHealth()-1;
+        System.out.println(healthBar[i].toString() + i);
         healthBar[i].delete();
-    }
-
-    public void score(Player player){
-
-        String strI = "" + player.getScore();
-        score = new Text(985,130, strI);
-        score.draw();
-
-    }
-
-    public void changeScore(Player player){
-
-        int countScore = player.getScore() + 1;
-        player.setScore(countScore);
-
-        score.delete();
-
     }
 }
