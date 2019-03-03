@@ -7,11 +7,13 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Scenario {
 
+
     //Screen dimensions
     private Rectangle[] healthBar;
     public static final int PADDING = 0;
     public static final int WINDOW_WIDTH = 1042 + PADDING;
     public static final int WINDOW_HEIGHT = 598 + PADDING;
+
 
     private Rectangle backgroundWindow;
     private Picture background;
@@ -21,8 +23,7 @@ public class Scenario {
 
     public Scenario() {
         backgroundWindow = new Rectangle(PADDING, PADDING, WINDOW_WIDTH, WINDOW_HEIGHT);
-        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "org/academiadecodigo/tropaDELETE/resources/Background/double_size.png");
-
+        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "Images/Background/double_size.png");
     }
 
     public Rectangle getBackgroundWindow() {
@@ -34,18 +35,21 @@ public class Scenario {
     }
 
     public void moveBackGround() {
-        background.translate(-2, 0);
+        background.translate(-2,0);
     }
 
     public void resetBackGround() {
-        background.translate(WINDOW_WIDTH, 0);
+        background.translate(WINDOW_WIDTH,0);
     }
+
 
     public void healthbar(Player player) {
         this.healthBar = new Rectangle[player.MAX_HEALTH];
 
-        outlineHealthBar = new Picture(643, 34, "org/academiadecodigo/tropaDELETE/resources/Healthbar/3dheart.png");
+        outlineHealthBar = new Picture(643, 34, "Images/Healthbar/3dheart.png");
         outlineHealthBar.draw();
+
+
 
         healthBar[0] = new Rectangle(700, 40, 30, 30);
         healthBar[0].setColor(Color.RED);
@@ -89,9 +93,9 @@ public class Scenario {
 
     }
 
+
     public void changeHealthBar(Player player) {
-        int i = player.getHealth() - 1;
-        System.out.println(healthBar[i].toString() + i);
+        int i = player.getHealth()-1;
         healthBar[i].delete();
     }
 

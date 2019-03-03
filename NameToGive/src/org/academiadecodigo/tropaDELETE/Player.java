@@ -2,6 +2,7 @@ package org.academiadecodigo.tropaDELETE;
 
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class Player implements Movable {
     private int maxFrames = 0;
 
     private String name;
+    private Sound hitSound;
     private int health;
     private int score;
     private int speed;
@@ -29,17 +31,18 @@ public class Player implements Movable {
 
         listPicture = new LinkedList<>();
 
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame1.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame2.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame3.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame4.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame5.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame6.png"));
+        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame1.png"));
+        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame2.png"));
+        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame3.png"));
+        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame4.png"));
+        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame5.png"));
+        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame6.png"));
 
         this.name = name;
         this.health = 10;
         this.lose = false;
         this.score = 0;
+        this.hitSound = new Sound("/Sounds/takeDamage.wav");
 
     }
 
@@ -49,7 +52,7 @@ public class Player implements Movable {
         this.jump = state;
     }
 
-    public int getHealth(){
+    public int getHealth() {
         return this.health;
     }
 
@@ -65,27 +68,31 @@ public class Player implements Movable {
     public void takeDmg(){
        health--;
        return;
+    public void takeDmg() {
+        health--;
+        hitSound.play(true);
+        return;
     }
 
     public void draw() {
 
         maxFrames++;
 
-        if(maxFrames >= 0 && maxFrames < 5) {
+        if (maxFrames >= 0 && maxFrames < 5) {
 
             listPicture.get(0).draw();
             listPicture.get(5).delete();
             return;
         }
 
-        if(maxFrames >= 5 && maxFrames < 10) {
+        if (maxFrames >= 5 && maxFrames < 10) {
 
             listPicture.get(1).draw();
             listPicture.get(0).delete();
             return;
         }
 
-        if(maxFrames >= 10 && maxFrames < 15) {
+        if (maxFrames >= 10 && maxFrames < 15) {
 
             listPicture.get(2).draw();
             listPicture.get(1).delete();
@@ -94,7 +101,7 @@ public class Player implements Movable {
         }
 
 
-        if(maxFrames >= 15 && maxFrames < 20) {
+        if (maxFrames >= 15 && maxFrames < 20) {
 
             listPicture.get(3).draw();
             listPicture.get(2).delete();
@@ -103,7 +110,7 @@ public class Player implements Movable {
         }
 
 
-        if(maxFrames >= 20 && maxFrames < 25) {
+        if (maxFrames >= 20 && maxFrames < 25) {
 
             listPicture.get(4).draw();
             listPicture.get(3).delete();
@@ -112,7 +119,7 @@ public class Player implements Movable {
         }
 
 
-        if(maxFrames >= 25 && maxFrames < 30) {
+        if (maxFrames >= 25 && maxFrames < 30) {
 
             listPicture.get(5).draw();
             listPicture.get(4).delete();
@@ -120,7 +127,7 @@ public class Player implements Movable {
             return;
         }
 
-        if(maxFrames == 30){
+        if (maxFrames == 30) {
             maxFrames = 0;
         }
 
@@ -156,7 +163,7 @@ public class Player implements Movable {
         if (currentHeight > maxHeight) {
 
             listPicture.get(0).draw();
-            listPicture.get(0).translate(0,-2);
+            listPicture.get(0).translate(0, -2);
 
             currentHeight -= 2;
         }
