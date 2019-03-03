@@ -84,7 +84,7 @@ public class Game {
             player.move();
 
             scenario.moveBackGround();
-            if (scenario.getBackground().getX() == -1042) {
+            if (scenario.getBackground().getX() == -scenario.WINDOW_WIDTH) {
                 scenario.resetBackGround();
             }
 

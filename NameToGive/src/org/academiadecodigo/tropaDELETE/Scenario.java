@@ -12,8 +12,8 @@ public class Scenario {
     //Screen dimensions
     private Rectangle[] healthBar;
     public static final int PADDING = 0;
-    public static final int WINDOW_WIDTH = 990 + PADDING;
-    public static final int WINDOW_HEIGHT = 500 + PADDING;
+    public static final int WINDOW_WIDTH = 1042 + PADDING;
+    public static final int WINDOW_HEIGHT = 598 + PADDING;
 
 
     private Rectangle backgroundWindow;
@@ -38,7 +38,7 @@ public class Scenario {
     }
 
     public void resetBackGround() {
-        background.translate(1042,0);
+        background.translate(WINDOW_WIDTH,0);
     }
 
 
