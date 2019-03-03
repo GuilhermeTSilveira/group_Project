@@ -83,9 +83,11 @@ public class Game {
 
             Thread.sleep(15);
 
-            picture[i].draw();
-
             Collections.shuffle(list);
+
+            picture[i] = type[i].getShape();
+
+            picture[i].draw();
 
             player.run();
 
