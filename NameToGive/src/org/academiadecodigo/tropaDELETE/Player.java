@@ -39,10 +39,16 @@ public class Player implements Movable {
         this.name = name;
         this.health = 10;
         this.lose = false;
-        this.score = 0;
 
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     public void setJump(boolean state) {
 
@@ -51,15 +57,6 @@ public class Player implements Movable {
 
     public int getHealth(){
         return this.health;
-    }
-
-    public int getScore(){
-        return this.score;
-    }
-
-    public void setScore(int score) {
-        this.score++;
-        return;
     }
 
     public void takeDmg(){

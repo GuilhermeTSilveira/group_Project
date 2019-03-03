@@ -1,14 +1,13 @@
 package org.academiadecodigo.tropaDELETE.food;
 
-import org.academiadecodigo.simplegraphics.graphics.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public enum FoodType {
 
-    PEPPER(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/1.png")),
-    HAMBURGER(10, new Picture (1390, 430, "org/academiadecodigo/tropaDELETE/resources/food/3.png")),
-    BROCOLLI(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/4.png")),
-    PIZZA(10, new Picture(1390, 420, "org/academiadecodigo/tropaDELETE/resources/food/2.png"));
+    PEPPER(15, new Picture(1300, 300, "Images/food/1.png")),
+    HAMBURGER(10, new Picture (1390, 430, "Images/food/3.png")),
+    BROCOLLI(15, new Picture(1300, 300, "Images/food/4.png")),
+    PIZZA(10, new Picture(1390, 420, "Images/food/2.png"));
 
     private Picture picture;
     private int speed;
