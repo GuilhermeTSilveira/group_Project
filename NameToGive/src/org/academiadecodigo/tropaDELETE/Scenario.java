@@ -41,7 +41,7 @@ public class Scenario {
 
 
     public void healthbar(Player player) {
-        this.healthBar = new Rectangle[player.getHealth()];
+        this.healthBar = new Rectangle[player.MAX_HEALTH];
 
         healthBar[0] = new Rectangle(700, 40, 140, 30);
         healthBar[0].setColor(Color.RED);
@@ -83,7 +83,8 @@ public class Scenario {
 
 
     public void changeHealthBar(Player player) {
-        int i = player.getHealth() -1;
+        int i = player.getHealth();
         healthBar[i].delete();
+        return;
     }
 }

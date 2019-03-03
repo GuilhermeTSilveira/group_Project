@@ -66,7 +66,6 @@ public class Game {
         Player player = new Player("Player 1");
         KeyboardListener keyboard = new KeyboardListener(player);
         collison = new Collison(player);
-        scenario.healthbar(player);
 
         int i = 0;
 
@@ -83,6 +82,8 @@ public class Game {
 
             player.move();
 
+            scenario.healthbar(player);
+
             scenario.moveBackGround();
             if (scenario.getBackground().getX() == -1042) {
                 scenario.resetBackGround();
@@ -93,9 +94,9 @@ public class Game {
 
             if (collison.isCollide(picture[i])) {
                 picture[i].delete();
+                player.takeDmg();
+                System.out.println(player.getHealth());
                 scenario.changeHealthBar(player);
-                //player.health--;
-
             }
 
 
