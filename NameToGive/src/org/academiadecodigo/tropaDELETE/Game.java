@@ -97,6 +97,7 @@ public class Game {
                 player.takeDmg();
                 System.out.println(player.getHealth());
                 scenario.changeHealthBar(player);
+                return;
             }
 
 
