@@ -16,6 +16,11 @@ public class Collison {
         if (isPassedBy(picture)) {
             return false;
         }
+        if (isUnder(picture)) {
+            return false;
+        }
+
+
         return (isXCollide(picture) && isYCollide(picture));
     }
 
@@ -29,6 +34,10 @@ public class Collison {
 
     private boolean isPassedBy(Picture picture) {
         return (player.listPicture.get(0).getX() >= picture.getMaxX());
+    }
+
+    private boolean isUnder(Picture picture) {
+        return (!(player.listPicture.get(0).getY() <= picture.getMaxY()));
     }
 
 }
