@@ -5,10 +5,10 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public enum FoodType {
 
-    PEPPER(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/Pepper.png")),
-    HAMBURGER(15, new Picture (1300, 440, "org/academiadecodigo/tropaDELETE/resources/food/3.png")),
-    BROCOLLI(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/Brocolli.png")),
-    PIZZA(15, new Picture(1390, 440, "org/academiadecodigo/tropaDELETE/resources/food/2.png"));
+    PEPPER(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/1.png")),
+    HAMBURGER(10, new Picture (1390, 430, "org/academiadecodigo/tropaDELETE/resources/food/3.png")),
+    BROCOLLI(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/4.png")),
+    PIZZA(10, new Picture(1390, 420, "org/academiadecodigo/tropaDELETE/resources/food/2.png"));
 
     private Picture picture;
     private int speed;

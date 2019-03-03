@@ -1,8 +1,6 @@
 package org.academiadecodigo.tropaDELETE;
 
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.tropaDELETE.food.Food;
@@ -43,7 +41,7 @@ public class Game {
     }
 
     public void init() throws InterruptedException {
-        this.initialPicture = new Picture(0, 0, "org/academiadecodigo/tropaDELETE/resources/InitialScreen_resized.jpg");
+        this.initialPicture = new Picture(0, 0, "org/academiadecodigo/tropaDELETE/resources/Background/InitialScreen_resized.jpg");
         initialPicture.draw();
         Thread.sleep(4000);
 
@@ -70,6 +68,7 @@ public class Game {
         int i = 0;
 
         scenario.healthbar(player);
+
 
         while (true) {
 
@@ -124,7 +123,7 @@ public class Game {
 
     private void gameOver(){
         //player.getAvatar().clear(); // Como se alterou de sprites para lista isto não funciona.
-        Picture gameOverPicture = new Picture(0,0,"org/academiadecodigo/tropaDELETE/resources/GameOver_resized.jpg");
+        Picture gameOverPicture = new Picture(0,0, "org/academiadecodigo/tropaDELETE/resources/Background/GameOver_resized.jpg");
         gameOverPicture.draw();
     }
 

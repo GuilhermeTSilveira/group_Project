@@ -29,12 +29,12 @@ public class Player implements Movable {
 
         listPicture = new LinkedList<>();
 
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame1.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame2.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame3.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame4.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame5.png"));
-        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar-frame6.png"));
+        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame1.png"));
+        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame2.png"));
+        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame3.png"));
+        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame4.png"));
+        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame5.png"));
+        listPicture.add(new Picture(235, 375, "org/academiadecodigo/tropaDELETE/resources/avatar/avatar-frame6.png"));
 
         this.name = name;
         this.health = 10;
