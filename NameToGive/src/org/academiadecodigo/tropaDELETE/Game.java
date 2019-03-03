@@ -24,6 +24,10 @@ public class Game {
 
     private Collison collison;
 
+    private Sound gameOverSound;
+
+    private Sound gameMusic;
+
     private int max;
 
     private Scenario scenario;
@@ -38,10 +42,14 @@ public class Game {
         list = new LinkedList<>();
 
         type = new FoodType[max];
+
+        this.gameMusic = new Sound("/Sounds/gameSong.wav");
+
+        gameOverSound = new Sound("/Sounds/GameOver.wav");
     }
 
     public void init() throws InterruptedException {
-        this.initialPicture = new Picture(0, 0, "org/academiadecodigo/tropaDELETE/resources/Background/InitialScreen_resized.jpg");
+        this.initialPicture = new Picture(0, 0, "Images/Background/InitialScreen_resized.jpg");
         initialPicture.draw();
         Thread.sleep(4000);
 
@@ -52,6 +60,8 @@ public class Game {
         Picture background = scenario.getBackground();
         background.draw();
 
+        gameMusic.play(true);
+        gameMusic.setLoop(10);
 
         //background.draw();
 
@@ -92,13 +102,11 @@ public class Game {
             move(picture[i], type[i]);
 
             if (collison.isCollide(picture[i])) {
-                System.out.println(picture[i].getX() + picture[i].toString());
                 picture[i].delete();
                 picture[i].translate(-500,0);
-                System.out.println("antes do take damage" + player.getHealth());
                 scenario.changeHealthBar(player);
                 player.takeDmg();
-                System.out.println("depois do take damage" + player.getHealth());
+
             }
 
 
@@ -123,7 +131,10 @@ public class Game {
 
     private void gameOver(){
         //player.getAvatar().clear(); // Como se alterou de sprites para lista isto não funciona.
-        Picture gameOverPicture = new Picture(0,0, "org/academiadecodigo/tropaDELETE/resources/Background/GameOver_resized.jpg");
+        gameMusic.stop();
+
+        gameOverSound.play(true);
+        Picture gameOverPicture = new Picture(0,0, "Images/Background/GameOver_resized.jpg");
         gameOverPicture.draw();
     }
 
