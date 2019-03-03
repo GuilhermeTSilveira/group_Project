@@ -24,7 +24,7 @@ public class Scenario {
 
     public Scenario() {
         backgroundWindow = new Rectangle(PADDING, PADDING, WINDOW_WIDTH, WINDOW_HEIGHT);
-        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "Images/Background/double_size.png");
+        background = new Picture(backgroundWindow.getX(), backgroundWindow.getY(), "Resources/Images/Background/double_size.png");
     }
 
     public Rectangle getBackgroundWindow() {

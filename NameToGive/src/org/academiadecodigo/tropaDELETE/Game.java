@@ -43,13 +43,13 @@ public class Game {
 
         type = new FoodType[max];
 
-        this.gameMusic = new Sound("/Sounds/gameSong.wav");
+        this.gameMusic = new Sound("/Resources/Sounds/gameSong.wav");
 
-        gameOverSound = new Sound("/Sounds/GameOver.wav");
+        gameOverSound = new Sound("/Resources/Sounds/GameOver.wav");
     }
 
     public void init() throws InterruptedException {
-        this.initialPicture = new Picture(0, 0, "Images/Background/InitialScreen_resized.jpg");
+        this.initialPicture = new Picture(0, 0, "Resources/Images/Background/InitialScreen_resized.jpg");
         initialPicture.draw();
         Thread.sleep(4000);
 
@@ -87,7 +87,7 @@ public class Game {
 
             Collections.shuffle(list);
 
-            player.draw();
+            player.run();
 
             player.move();
 

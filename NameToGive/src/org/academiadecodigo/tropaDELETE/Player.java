@@ -24,19 +24,21 @@ public class Player implements Movable {
     private boolean lose;
     private boolean jump;
     private int currentHeight = 0;
-    private int maxHeight = 10;
+    private int maxHeight = -200;
     private int i;
 
     public Player(String name) {
 
         listPicture = new LinkedList<>();
 
-        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame1.png"));
-        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame2.png"));
-        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame3.png"));
-        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame4.png"));
-        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame5.png"));
-        listPicture.add(new Picture(235, 375, "Images/avatar/avatar-frame6.png"));
+        listPicture.add(new Picture(235, 365, "Resources/Images/avatar/avatar-frame1.png"));
+        listPicture.add(new Picture(235, 365, "Resources/Images/avatar/avatar-frame2.png"));
+        listPicture.add(new Picture(235, 365, "Resources/Images/avatar/avatar-frame3.png"));
+        listPicture.add(new Picture(235, 365, "Resources/Images/avatar/avatar-frame4.png"));
+        listPicture.add(new Picture(235, 365, "Resources/Images/avatar/avatar-frame5.png"));
+        listPicture.add(new Picture(235, 365, "Resources/Images/avatar/avatar-frame6.png"));
+        listPicture.add(new Picture(235, 365, "Resources/Images/avatar/up.png"));
+        listPicture.add(new Picture(235, 365, "Resources/Images/avatar/down.png"));
 
         this.name = name;
         this.health = 10;
@@ -45,6 +47,7 @@ public class Player implements Movable {
         this.hitSound = new Sound("/Sounds/takeDamage.wav");
         this.hitSound = new Sound("/Sounds/takeDamage.wav");
 
+        this.jump = false;
     }
 
     public void setJump(boolean state) {
@@ -52,7 +55,7 @@ public class Player implements Movable {
         this.jump = state;
     }
 
-    public int getHealth() {
+    public int getHealth(){
         return this.health;
     }
 
@@ -71,25 +74,28 @@ public class Player implements Movable {
         return;
     }
 
-    public void draw() {
+    public void run() {
 
         maxFrames++;
 
-        if (maxFrames >= 0 && maxFrames < 5) {
+        listPicture.get(6).delete();
+        listPicture.get(7).delete();
+
+        if(maxFrames >= 0 && maxFrames < 5) {
 
             listPicture.get(0).draw();
             listPicture.get(5).delete();
             return;
         }
 
-        if (maxFrames >= 5 && maxFrames < 10) {
+        if(maxFrames >= 5 && maxFrames < 10) {
 
             listPicture.get(1).draw();
             listPicture.get(0).delete();
             return;
         }
 
-        if (maxFrames >= 10 && maxFrames < 15) {
+        if(maxFrames >= 10 && maxFrames < 15) {
 
             listPicture.get(2).draw();
             listPicture.get(1).delete();
@@ -98,7 +104,7 @@ public class Player implements Movable {
         }
 
 
-        if (maxFrames >= 15 && maxFrames < 20) {
+        if(maxFrames >= 15 && maxFrames < 20) {
 
             listPicture.get(3).draw();
             listPicture.get(2).delete();
@@ -107,7 +113,7 @@ public class Player implements Movable {
         }
 
 
-        if (maxFrames >= 20 && maxFrames < 25) {
+        if(maxFrames >= 20 && maxFrames < 25) {
 
             listPicture.get(4).draw();
             listPicture.get(3).delete();
@@ -116,7 +122,7 @@ public class Player implements Movable {
         }
 
 
-        if (maxFrames >= 25 && maxFrames < 30) {
+        if(maxFrames >= 25 && maxFrames < 30) {
 
             listPicture.get(5).draw();
             listPicture.get(4).delete();
@@ -124,7 +130,7 @@ public class Player implements Movable {
             return;
         }
 
-        if (maxFrames == 30) {
+        if(maxFrames == 30){
             maxFrames = 0;
         }
 
@@ -151,30 +157,64 @@ public class Player implements Movable {
             return;
         }
 
-
         goUp();
     }
 
-    public void goUp() {
+    public void goUp() { // acabar de ver essa parte
 
-        if (currentHeight > maxHeight) {
+        if(currentHeight > maxHeight){
 
-            listPicture.get(0).draw();
-            listPicture.get(0).translate(0, -2);
+            listPicture.get(0).delete();
+            listPicture.get(0).translate(0, -5);
+            listPicture.get(1).delete();
+            listPicture.get(1).translate(0, -5);
+            listPicture.get(2).delete();
+            listPicture.get(2).translate(0, -5);
+            listPicture.get(3).delete();
+            listPicture.get(3).translate(0, -5);
+            listPicture.get(4).delete();
+            listPicture.get(4).translate(0, -5);
+            listPicture.get(5).delete();
+            listPicture.get(5).translate(0, -5);
 
-            currentHeight -= 2;
+            listPicture.get(6).draw();
+            listPicture.get(6).translate(0,-5);
+
+            listPicture.get(7).delete();
+            listPicture.get(7).translate(0,-5);
+            
+            currentHeight -= 5;
+
         }
     }
 
     public void goDown() {
 
-        /*if ((avatar1.getHeight() + avatar1.getY()) <= Scenario.WINDOW_HEIGHT + 50) {
+        if (currentHeight <= 0) {
 
-            avatar1.translate(0, 2);
+            listPicture.get(0).delete();
+            listPicture.get(0).translate(0, +5);
+            listPicture.get(1).delete();
+            listPicture.get(1).translate(0, +5);
+            listPicture.get(2).delete();
+            listPicture.get(2).translate(0, +5);
+            listPicture.get(3).delete();
+            listPicture.get(3).translate(0, +5);
+            listPicture.get(4).delete();
+            listPicture.get(4).translate(0, +5);
+            listPicture.get(5).delete();
+            listPicture.get(5).translate(0, +5);
 
-            currentHeight += 2;
+            listPicture.get(7).draw();
+            listPicture.get(7).translate(0,+5);
 
-        }*/
+            listPicture.get(6).delete();
+            listPicture.get(6).translate(0,+5);
+
+            currentHeight += 5;
+
+            return;
+        }
     }
 
     public void collide() {
