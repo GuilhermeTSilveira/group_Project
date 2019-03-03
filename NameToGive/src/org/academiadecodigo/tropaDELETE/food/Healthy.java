@@ -2,7 +2,7 @@ package org.academiadecodigo.tropaDELETE.food;
 
 public class Healthy extends Food{
 
-    private FoodType[] type = {FoodType.CARROT, FoodType.TOMATO};
+    private FoodType[] type = {FoodType.PEPPER, FoodType.BROCOLLI};
 
     public Healthy(){
         super();

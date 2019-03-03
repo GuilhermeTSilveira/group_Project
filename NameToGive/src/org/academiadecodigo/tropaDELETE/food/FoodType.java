@@ -2,66 +2,49 @@ package org.academiadecodigo.tropaDELETE.food;
 
 import org.academiadecodigo.simplegraphics.graphics.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.academiadecodigo.tropaDELETE.Scenario;
 
 public enum FoodType {
 
-    CARROT(1, new Ellipse(500, 400, 80, 80)),
-    HAMBURGER(1, new Ellipse(500, 400, 80, 80)),
-    TOMATO(1, new Ellipse(500, 400, 80, 80)),
-    PIZZA(1, new Ellipse(500, 400, 80, 80));
+    PEPPER(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/Pepper.png")),
+    HAMBURGER(15, new Picture (1300, 440, "org/academiadecodigo/tropaDELETE/resources/food/6.png")),
+    BROCOLLI(15, new Picture(1300, 300, "org/academiadecodigo/tropaDELETE/resources/food/Brocolli.png")),
+    PIZZA(15, new Picture(1390, 440, "org/academiadecodigo/tropaDELETE/resources/food/Avoccato.png"));
 
-    Ellipse ellipse;
-    int speed;
+    private Picture picture;
+    private int speed;
 
 
-    FoodType(int speed, Ellipse ellipse) {
+    FoodType(int speed, Picture picture) {
+
         this.speed = speed;
-        this.ellipse = ellipse;
-    }
 
-    FoodType(){
-
+        this.picture = picture;
     }
 
     public int getSpeed() {
+
         return speed;
+
     }
 
-    public Ellipse getShape() {
-        switch (this) {
-            case CARROT:
-                this.ellipse.setColor(Color.ORANGE);
-                this.ellipse.fill();
-                break;
-            case HAMBURGER:
-                this.ellipse.setColor(Color.YELLOW);
-                this.ellipse.fill();
-                break;
-            case TOMATO:
-                this.ellipse.setColor(Color.RED);
-                this.ellipse.fill();
-                break;
-            case PIZZA:
-                this.ellipse.setColor(Color.GREEN);
-                this.ellipse.fill();
-                break;
-        }
-
-        return ellipse;
+    public Picture getShape() {
+        return picture;
     }
 
-    public void move(Ellipse ellipse){
+    public static void move(Picture picture, FoodType type){
 
-        if (ellipse.getX() > -10) {
+        if (picture.getX() > -200 ) {
 
-            ellipse.translate(-5, 0);
+            picture.translate(-type.getSpeed(), 0);
 
         }
 
-        if(ellipse.getX() == -10){
-            ellipse.delete();
+        if(picture.getX() <= -200){
+
+            picture.translate(1300,0);
+
+            picture.delete();
+
         }
     }
-
 }

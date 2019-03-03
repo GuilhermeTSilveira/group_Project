@@ -1,84 +1,128 @@
 package org.academiadecodigo.tropaDELETE;
 
+
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.tropaDELETE.food.Food;
 import org.academiadecodigo.tropaDELETE.food.FoodType;
-import org.academiadecodigo.tropaDELETE.food.LinkedList;
 
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Game {
 
-    private LinkedList<FoodType> list = new LinkedList<>();
-    private FoodType type;
-    private Ellipse ellipse;
+    private List<FoodType> list;
+
+    private FoodType[] type;
+
+    private Picture[] picture;
+
+    private Picture initialPicture;
+
+    private Player player;
 
     private int max;
 
-    Scenario scenario;
+    private Scenario scenario;
+
 
     public Game(int max) {
+
         this.max = max;
+
         this.scenario = new Scenario();
+
+        list = new LinkedList<>();
+
+        type = new FoodType[max];
     }
 
-    public void start() throws InterruptedException {
+    public void init() throws InterruptedException {
+        this.initialPicture = new Picture(0, 0, "org/academiadecodigo/tropaDELETE/resources/InitialScreen_resized.jpg");
+        initialPicture.draw();
+        Thread.sleep(4000);
 
         createFoodObjects(max);
-
-        list.printList(list);
-        Rectangle avatar = new Rectangle(250, 450, 40, 80);
-
         Rectangle screen = scenario.getBackgroundWindow();
         screen.draw();
 
         Picture background = scenario.getBackground();
         background.draw();
 
-        Rectangle rightBorder = scenario.getRightBorder();
-        rightBorder.setColor(Color.BLACK);
-        rightBorder.fill();
-
         background.draw();
-        avatar.setColor(Color.BLACK);
-        avatar.fill();
 
-        ellipse = scenario.getEllipse();
-        ellipse.setColor(Color.YELLOW);
-        ellipse.fill();
+        scenario.healthbar();
+
+        start();
+    }
 
 
-        Player player = new Player("Player 1", avatar);
+    public void start() throws InterruptedException {
+       Player player = new Player("Player 1");
         KeyboardListener keyboard = new KeyboardListener(player);
 
+        int i = 0;
 
         while (true) {
 
-
             Thread.sleep(15);
+
+            picture[i].draw();
+
+            Collections.shuffle(list);
+
+            player.draw();
 
             player.move();
 
-            type.move(ellipse);
 
+            //type.move(ellipse);
+            move(picture[i], type[i]);
 
+            if (picture[i].getX() < -200) {
+
+                i++;
+
+            }
+
+            if (i == max){
+
+                i = 0;
+
+            }
+            if (player.getHealth() == 0){
+               gameOver();
+            }
         }
+    }
+
+    private void gameOver(){
+        //player.getAvatar().clear(); // Como se alterou de sprites para lista isto não funciona.
+        Picture gameOverPicture = new Picture(0,0,"org/academiadecodigo/tropaDELETE/resources/GameOver_resized.jpg");
+        gameOverPicture.draw();
     }
 
     private void createFoodObjects(int max) {
 
+        picture = new Picture[max];
+
         for (int i = 0; i < max; i++) {
 
-            type = Food.createFoodObjects();
+            type[i] = Food.createFoodObjects();
 
-            list.add(type);
+            picture[i] = type[i].getShape();
 
-            ellipse = type.getShape();
+            list.add(type[i]);
 
         }
+    }
+
+    public void move(Picture picture, FoodType type) {
+
+        FoodType.move(picture, type);
     }
 
 }
