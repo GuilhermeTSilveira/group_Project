@@ -8,6 +8,8 @@ import java.util.List;
 
 public class Player implements Movable {
 
+    public static final int MAX_HEALTH = 10;
+
     List<Picture> listPicture;
 
     private Picture avatar;
@@ -51,6 +53,11 @@ public class Player implements Movable {
 
     public int getHealth(){
         return this.health;
+    }
+
+    public void takeDmg(){
+       health--;
+       return;
     }
 
     public void run() {

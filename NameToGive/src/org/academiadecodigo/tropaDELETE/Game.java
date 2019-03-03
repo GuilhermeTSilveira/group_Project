@@ -1,8 +1,6 @@
 package org.academiadecodigo.tropaDELETE;
 
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.tropaDELETE.food.Food;
@@ -43,7 +41,7 @@ public class Game {
     }
 
     public void init() throws InterruptedException {
-        this.initialPicture = new Picture(0, 0, "org/academiadecodigo/tropaDELETE/resources/InitialScreen_resized.jpg");
+        this.initialPicture = new Picture(0, 0, "org/academiadecodigo/tropaDELETE/resources/Background/InitialScreen_resized.jpg");
         initialPicture.draw();
         Thread.sleep(4000);
 
@@ -65,9 +63,10 @@ public class Game {
         Player player = new Player("Player 1");
         KeyboardListener keyboard = new KeyboardListener(player);
         collison = new Collison(player);
-        scenario.healthbar(player);
 
         int i = 0;
+
+        scenario.healthbar(player);
 
 
         while (true) {
@@ -82,8 +81,9 @@ public class Game {
 
             player.move();
 
+
             scenario.moveBackGround();
-            if (scenario.getBackground().getX() == -1042) {
+            if (scenario.getBackground().getX() == -scenario.WINDOW_WIDTH) {
                 scenario.resetBackGround();
             }
 
@@ -91,10 +91,13 @@ public class Game {
             move(picture[i], type[i]);
 
             if (collison.isCollide(picture[i])) {
+                System.out.println(picture[i].getX() + picture[i].toString());
                 picture[i].delete();
+                picture[i].translate(-500,0);
+                System.out.println("antes do take damage" + player.getHealth());
                 scenario.changeHealthBar(player);
-                //player.health--;
-
+                player.takeDmg();
+                System.out.println("depois do take damage" + player.getHealth());
             }
 
 
@@ -111,6 +114,7 @@ public class Game {
             }
             if (player.getHealth() == 0){
                gameOver();
+               return;
             }
 
         }
@@ -118,7 +122,7 @@ public class Game {
 
     private void gameOver(){
         //player.getAvatar().clear(); // Como se alterou de sprites para lista isto não funciona.
-        Picture gameOverPicture = new Picture(0,0,"org/academiadecodigo/tropaDELETE/resources/GameOver_resized.jpg");
+        Picture gameOverPicture = new Picture(0,0, "org/academiadecodigo/tropaDELETE/resources/Background/GameOver_resized.jpg");
         gameOverPicture.draw();
     }
 
