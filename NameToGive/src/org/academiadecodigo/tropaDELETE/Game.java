@@ -69,6 +69,7 @@ public class Game {
 
         int i = 0;
 
+        scenario.healthbar(player);
 
         while (true) {
 
@@ -82,7 +83,6 @@ public class Game {
 
             player.move();
 
-            scenario.healthbar(player);
 
             scenario.moveBackGround();
             if (scenario.getBackground().getX() == -scenario.WINDOW_WIDTH) {
@@ -93,11 +93,13 @@ public class Game {
             move(picture[i], type[i]);
 
             if (collison.isCollide(picture[i])) {
+                System.out.println(picture[i].getX() + picture[i].toString());
                 picture[i].delete();
-                player.takeDmg();
-                System.out.println(player.getHealth());
+                picture[i].translate(-500,0);
+                System.out.println("antes do take damage" + player.getHealth());
                 scenario.changeHealthBar(player);
-                return;
+                player.takeDmg();
+                System.out.println("depois do take damage" + player.getHealth());
             }
 
 
@@ -114,6 +116,7 @@ public class Game {
             }
             if (player.getHealth() == 0){
                gameOver();
+               return;
             }
 
         }

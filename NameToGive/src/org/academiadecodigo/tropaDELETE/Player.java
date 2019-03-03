@@ -52,8 +52,9 @@ public class Player implements Movable {
         return this.health;
     }
 
-    public int takeDmg(){
-       return health--;
+    public void takeDmg(){
+       health--;
+       return;
     }
 
     public void draw() {
