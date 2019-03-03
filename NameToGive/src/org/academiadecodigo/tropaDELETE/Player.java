@@ -43,9 +43,9 @@ public class Player implements Movable {
         this.lose = false;
         this.score = 0;
         this.hitSound = new Sound("/Sounds/takeDamage.wav");
+        this.hitSound = new Sound("/Sounds/takeDamage.wav");
 
     }
-
 
     public void setJump(boolean state) {
 
@@ -66,11 +66,9 @@ public class Player implements Movable {
     }
 
     public void takeDmg(){
-       health--;
-       return;
-    public void takeDmg() {
         health--;
         hitSound.play(true);
+        return;
     }
 
     public void draw() {

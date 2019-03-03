@@ -2,8 +2,8 @@ package org.academiadecodigo.tropaDELETE;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class Scenario {
 
@@ -19,6 +19,7 @@ public class Scenario {
     private Picture background;
     private Picture outlineHealthBar;
 
+    private Picture pictureScore;
     private Text score;
 
     public Scenario() {
@@ -96,20 +97,24 @@ public class Scenario {
 
     public void changeHealthBar(Player player) {
         int i = player.getHealth()-1;
+        System.out.println(healthBar[i].toString() + i);
         healthBar[i].delete();
     }
 
     public void score(Player player){
 
+        pictureScore = new Picture(900, 110, "Images/food/score.png");
+        pictureScore.draw();
         String strI = "" + player.getScore();
         score = new Text(985,130, strI);
         score.draw();
-
+        score.setColor(Color.ORANGE);
+        score.grow(10,10);
     }
 
     public void changeScore(Player player){
 
-        int countScore = player.getScore() + 1;
+        int countScore = player.getScore(   ) + 1;
         player.setScore(countScore);
 
         score.delete();

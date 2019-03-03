@@ -32,6 +32,7 @@ public class Game {
 
     private Scenario scenario;
 
+
     public Game(int max) {
 
         this.max = max;
