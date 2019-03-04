@@ -36,11 +36,11 @@ public class Scenario {
     }
 
     public void moveBackGround() {
-        background.translate(-2,0);
+        background.translate(-2, 0);
     }
 
     public void resetBackGround() {
-        background.translate(WINDOW_WIDTH,0);
+        background.translate(WINDOW_WIDTH, 0);
     }
 
 
@@ -49,7 +49,6 @@ public class Scenario {
 
         outlineHealthBar = new Picture(643, 34, "Images/Healthbar/3dheart.png");
         outlineHealthBar.draw();
-
 
 
         healthBar[0] = new Rectangle(700, 40, 30, 30);
@@ -96,28 +95,29 @@ public class Scenario {
 
 
     public void changeHealthBar(Player player) {
-        int i = player.getHealth()-1;
+        int i = player.getHealth() - 1;
         System.out.println(healthBar[i].toString() + i);
         healthBar[i].delete();
     }
 
-    public void score(Player player){
+    public void score(Player player) {
 
         pictureScore = new Picture(900, 110, "Images/food/score.png");
         pictureScore.draw();
-        String strI = "" + player.getScore();
-        score = new Text(985,130, strI);
+
+        score = new Text(985, 130, "0");
         score.draw();
         score.setColor(Color.ORANGE);
-        score.grow(10,10);
+        score.grow(10, 10);
     }
 
-    public void changeScore(Player player){
+    public void changeScore(Player player) {
 
-        int countScore = player.getScore(   ) + 1;
+        int countScore = player.getScore() + 1;
         player.setScore(countScore);
 
-        score.delete();
+        String strI = "" + player.getScore();
+        score.setText(strI);
 
     }
 }
