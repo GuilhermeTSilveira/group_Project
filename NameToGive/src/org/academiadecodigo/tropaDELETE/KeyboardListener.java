@@ -13,11 +13,13 @@ public class KeyboardListener implements KeyboardHandler {
         private KeyboardEvent space;
         private Keyboard keyboard;
         private Sound jumpSound;
+        private Game game;
 
-        public KeyboardListener(Player player){
+        public KeyboardListener(Player player, Game game){
 
             this.jumpSound = new Sound("/Sounds/Jump.wav");
             this.player = player;
+            this.game = game;
 
             space = new KeyboardEvent();
             keyboard = new Keyboard(this);
@@ -28,6 +30,7 @@ public class KeyboardListener implements KeyboardHandler {
 
         @Override
         public void keyPressed(KeyboardEvent keyboardEvent) {
+            game.starting();
 
             if (player.listPicture.get(0).getMaxY() >= 500) {
 

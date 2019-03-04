@@ -34,10 +34,14 @@ public class Game {
 
     private Scenario scenario;
 
+    private boolean started;
+
 
     public Game(int max) {
 
         this.max = max;
+
+        started = false;
 
         this.scenario = new Scenario();
 
@@ -53,6 +57,8 @@ public class Game {
     public void init() throws InterruptedException {
 
         KeyboardEvent key = new KeyboardEvent();
+        Player player = new Player("Player 1");
+        KeyboardListener keyboard = new KeyboardListener(player, this);
 
         this.initialPicture = new Picture(0, 0, "Resources/Images/Background/InitialScreen_resized.jpg");
         initialPicture.draw();
@@ -60,9 +66,10 @@ public class Game {
 
         Picture initialPictureStart = new Picture(0, 0, "Resources/Images/Background/InitialScreen_resized_Start.jpg");
         initialPictureStart.draw();
-        Thread.sleep(2000);
 
         createFoodObjects(max);
+
+        isStarted();
         Rectangle screen = scenario.getBackgroundWindow();
         screen.draw();
 
@@ -74,19 +81,18 @@ public class Game {
 
         //background.draw();
 
-        start();
+        start(player);
     }
 
 
-    public void start() throws InterruptedException {
-        Player player = new Player("Player 1");
-        KeyboardListener keyboard = new KeyboardListener(player);
+    public void start(Player player) throws InterruptedException {
         collison = new Collison(player);
 
         int i = 0;
 
         scenario.healthbar(player);
         scenario.score(player);
+
 
         while (true) {
 
@@ -178,6 +184,20 @@ public class Game {
     public void move(Picture picture, FoodType type) {
 
         FoodType.move(picture, type);
+    }
+
+    public void starting() {
+        started = true;
+    }
+
+    private void isStarted() {
+        while (!started) {
+
+            System.out.println("hello");
+            if (started) {
+                break;
+            }
+        }
     }
 
 }
