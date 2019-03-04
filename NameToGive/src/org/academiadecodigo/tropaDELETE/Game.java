@@ -2,6 +2,8 @@ package org.academiadecodigo.tropaDELETE;
 
 
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.tropaDELETE.food.Food;
 import org.academiadecodigo.tropaDELETE.food.FoodType;
@@ -49,9 +51,16 @@ public class Game {
     }
 
     public void init() throws InterruptedException {
+
+        KeyboardEvent key = new KeyboardEvent();
+
         this.initialPicture = new Picture(0, 0, "Resources/Images/Background/InitialScreen_resized.jpg");
         initialPicture.draw();
         Thread.sleep(4000);
+
+        Picture initialPictureStart = new Picture(0, 0, "Resources/Images/Background/InitialScreen_resized_Start.jpg");
+        initialPictureStart.draw();
+        Thread.sleep(2000);
 
         createFoodObjects(max);
         Rectangle screen = scenario.getBackgroundWindow();
@@ -104,7 +113,7 @@ public class Game {
 
             if (collison.isCollide(picture[i])) {
                 picture[i].delete();
-                picture[i].translate(-500,0);
+                picture[i].translate(-500, 0);
                 scenario.changeHealthBar(player);
                 player.takeDmg();
 
@@ -122,25 +131,25 @@ public class Game {
 
             }
 
-            if (i == max){
+            if (i == max) {
 
                 i = 0;
 
             }
-            if (player.getHealth() == 0){
-               gameOver();
-               return;
+            if (player.getHealth() == 0) {
+                gameOver();
+                return;
             }
 
         }
     }
 
-    private void gameOver(){
+    private void gameOver() {
         //player.getAvatar().clear(); // Como se alterou de sprites para lista isto não funciona.
         gameMusic.stop();
 
         gameOverSound.play(true);
-        Picture gameOverPicture = new Picture(0,0, "Images/Background/GameOver_resized.jpg");
+        Picture gameOverPicture = new Picture(0, 0, "Images/Background/GameOver_resized.jpg");
         gameOverPicture.draw();
     }
 

@@ -5,7 +5,9 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 
-    public class KeyboardListener implements KeyboardHandler {
+import java.security.Key;
+
+public class KeyboardListener implements KeyboardHandler {
 
         private Player player;
         private KeyboardEvent space;
@@ -47,5 +49,9 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
             space.setKey(KeyboardEvent.KEY_SPACE);
 
             space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        }
+
+        public KeyboardEvent getKey(){
+            return space;
         }
     }
