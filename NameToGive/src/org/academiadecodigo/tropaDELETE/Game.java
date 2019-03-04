@@ -190,10 +190,15 @@ public class Game {
         started = true;
     }
 
-    private void isStarted() {
+    private void isStarted() throws InterruptedException {
         while (!started) {
+
+            Thread.sleep(1000);
+            System.out.println("Waiting on player..");
+
             if (started) {
-                break;
+                System.out.println("Game started!");
+                return;
             }
         }
     }
