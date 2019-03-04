@@ -17,7 +17,7 @@ public class KeyboardListener implements KeyboardHandler {
 
         public KeyboardListener(Player player, Game game){
 
-            this.jumpSound = new Sound("/Sounds/Jump.wav");
+            this.jumpSound = new Sound("/Resources/Sounds/Jump.wav");
             this.player = player;
             this.game = game;
 

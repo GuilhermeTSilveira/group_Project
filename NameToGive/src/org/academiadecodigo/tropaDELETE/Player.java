@@ -45,7 +45,7 @@ public class Player implements Movable {
         this.lose = false;
         this.score = 0;
 
-        this.hitSound = new Sound("/Sounds/takeDamage.wav");
+        this.hitSound = new Sound("/Resources/Sounds/takeDamage.wav");
 
         this.jump = false;
     }

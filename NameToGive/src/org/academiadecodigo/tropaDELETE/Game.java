@@ -68,7 +68,7 @@ public class Game {
         initialPicture.draw();
         Thread.sleep(4000);
 
-        Picture initialPictureStart = new Picture(345, 450, "Images/Background/Offline.png");
+        Picture initialPictureStart = new Picture(345, 450, "Resources/Images/Background/Offline.png");
         initialPictureStart.draw();
 
         createFoodObjects(max);
@@ -167,7 +167,7 @@ public class Game {
         gameMusic.stop();
 
         gameOverSound.play(true);
-        Picture gameOverPicture = new Picture(0, 0, "Images/Background/GameOver_resized.jpg");
+        Picture gameOverPicture = new Picture(0, 0, "Resources/Images/Background/GameOver_resized.jpg");
         gameOverPicture.draw();
 
 

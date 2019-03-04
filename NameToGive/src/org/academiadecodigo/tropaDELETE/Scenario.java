@@ -47,7 +47,7 @@ public class Scenario {
     public void healthbar(Player player) {
         this.healthBar = new Rectangle[player.MAX_HEALTH];
 
-        outlineHealthBar = new Picture(643, 34, "Images/Healthbar/3dheart.png");
+        outlineHealthBar = new Picture(643, 34, "Resources/Images/Healthbar/3dheart.png");
         outlineHealthBar.draw();
 
 
@@ -102,7 +102,7 @@ public class Scenario {
 
     public void score(Player player) {
 
-        pictureScore = new Picture(900, 110, "Images/food/score.png");
+        pictureScore = new Picture(900, 110, "Resources/Images/food/score.png");
         pictureScore.draw();
 
         score = new Text(985, 130, "0");
