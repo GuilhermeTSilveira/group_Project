@@ -64,7 +64,7 @@ public class Game {
         initialPicture.draw();
         Thread.sleep(4000);
 
-        Picture initialPictureStart = new Picture(0, 0, "Resources/Images/Background/InitialScreen_resized_Start.jpg");
+        Picture initialPictureStart = new Picture(345, 450, "Images/Background/Offline.png");
         initialPictureStart.draw();
 
         createFoodObjects(max);
@@ -192,8 +192,6 @@ public class Game {
 
     private void isStarted() {
         while (!started) {
-
-            System.out.println("hello");
             if (started) {
                 break;
             }
