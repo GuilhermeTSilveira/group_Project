@@ -112,14 +112,21 @@ public class Game {
             move(picture[i], type[i]);
 
             if (collison.isCollide(picture[i])) {
-                picture[i].delete();
-                picture[i].translate(-500, 0);
-                scenario.changeHealthBar(player);
-                player.takeDmg();
+                if (type[i] == FoodType.PEPPER || type[i] == FoodType.BROCOLLI) {
+                    picture[i].delete();
+                    picture[i].translate(-500, 0);
+                    scenario.changeScore(player);
+                }
+
+                if (type[i] == FoodType.PIZZA || type[i] == FoodType.HAMBURGER) {
+                    picture[i].delete();
+                    picture[i].translate(-500, 0);
+                    scenario.changeHealthBar(player);
+                    player.takeDmg();
+                }
 
 
                 //System.out.println("depois do take damage" + player.getHealth());
-                scenario.changeScore(player);
 
                 System.out.println("Score: " + player.getScore());
             }
