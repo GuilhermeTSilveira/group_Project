@@ -44,7 +44,7 @@ public class Player implements Movable {
         this.health = 10;
         this.lose = false;
         this.score = 0;
-        this.hitSound = new Sound("/Sounds/takeDamage.wav");
+
         this.hitSound = new Sound("/Sounds/takeDamage.wav");
 
         this.jump = false;
@@ -186,6 +186,7 @@ public class Player implements Movable {
             currentHeight -= 10;
 
         }
+
     }
 
     public void goDown() {
@@ -213,7 +214,6 @@ public class Player implements Movable {
 
             currentHeight += 10;
 
-            return;
         }
     }
 

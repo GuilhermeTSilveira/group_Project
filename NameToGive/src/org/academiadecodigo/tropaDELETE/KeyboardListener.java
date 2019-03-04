@@ -7,12 +7,14 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 
     public class KeyboardListener implements KeyboardHandler {
 
-        Player player;
-        KeyboardEvent space;
-        Keyboard keyboard;
+        private Player player;
+        private KeyboardEvent space;
+        private Keyboard keyboard;
+        private Sound jumpSound;
 
         public KeyboardListener(Player player){
 
+            this.jumpSound = new Sound("/Sounds/Jump.wav");
             this.player = player;
 
             space = new KeyboardEvent();
@@ -28,6 +30,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
             if (player.listPicture.get(0).getMaxY() >= 500) {
 
                 player.setJump(true);
+                jumpSound.play(true);
             }
 
         }
@@ -36,6 +39,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
         public void keyReleased(KeyboardEvent keyboardEvent) {
 
             player.setJump(false);
+
         }
 
         public void setKey(){
