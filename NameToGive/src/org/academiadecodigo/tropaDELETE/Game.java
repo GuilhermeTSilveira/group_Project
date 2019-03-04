@@ -1,7 +1,9 @@
 package org.academiadecodigo.tropaDELETE;
 
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -35,6 +37,8 @@ public class Game {
     private Scenario scenario;
 
     private boolean started;
+
+    private int playerScore;
 
 
     public Game(int max) {
@@ -150,6 +154,7 @@ public class Game {
 
             }
             if (player.getHealth() == 0) {
+                playerScore = player.getScore();
                 gameOver();
                 return;
             }
@@ -164,6 +169,17 @@ public class Game {
         gameOverSound.play(true);
         Picture gameOverPicture = new Picture(0, 0, "Images/Background/GameOver_resized.jpg");
         gameOverPicture.draw();
+
+
+        String score = "" + playerScore;
+        Text textScore = new Text(510, 470, "SCORE");
+        textScore.grow(50, 20);
+        textScore.setColor(Color.WHITE);
+        textScore.draw();
+        Text text = new Text(515, 520, score );
+        text.grow(20,30);
+        text.setColor(Color.WHITE);
+        text.draw();
     }
 
     private void createFoodObjects(int max) {
